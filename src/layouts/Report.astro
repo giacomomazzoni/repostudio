@@ -1,0 +1,347 @@
+---
+import Base from './Base.astro';
+
+const FORM_URL = 'YOUR_FORM_LINK_HERE';
+
+const {
+  title,
+  description,
+  date,
+  category,
+  zona,
+  slug,
+  keyNumbers = [],
+} = Astro.props;
+
+const dateFormatted = new Date(date).toLocaleDateString('it-IT', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<Base
+  title={`${title} — RepoStudio`}
+  description={description}
+  canonical={`https://repostudio.it/report/${slug}/`}
+  ogType="article"
+>
+  <div class="report-wrap">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">RepoStudio</a>
+      <span aria-hidden="true">›</span>
+      <a href="/report/">Report</a>
+      <span aria-hidden="true">›</span>
+      <span>{category}</span>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="report-header">
+      <span class="cat-badge">{category}</span>
+      <h1>{title}</h1>
+      <div class="meta-row">
+        <span>{dateFormatted}</span>
+        <span class="meta-sep">·</span>
+        <span>{zona}</span>
+        <span class="meta-sep">·</span>
+        <span>Preparato da RepoStudio</span>
+      </div>
+    </header>
+
+    <!-- KEY NUMBERS -->
+    {keyNumbers.length > 0 && (
+      <div class="key-numbers">
+        {keyNumbers.map((k: { num: string; label: string }) => (
+          <div class="key-num-card">
+            <div class="key-num-value">{k.num}</div>
+            <div class="key-num-label">{k.label}</div>
+          </div>
+        ))}
+      </div>
+    )}
+
+    <!-- BODY -->
+    <article class="report-body">
+      <slot />
+
+      <!-- CTA INLINE (mid-page) -->
+      <div class="cta-inline">
+        <p>Vuoi un report personalizzato sulla tua zona o settore?</p>
+        <a href={FORM_URL} class="btn btn-primary" target="_blank" rel="noopener">
+          Fai la tua prima ricerca gratis →
+        </a>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- CTA FOOTER VIOLA -->
+  <div class="cta-footer-dark">
+    <div class="cta-footer-inner">
+      <h2>Vuoi un report come questo ogni lunedì?</h2>
+      <p>Dimmi su cosa vuoi restare aggiornato. Ci penso io, ogni settimana.</p>
+      <a href={FORM_URL} class="btn btn-white" target="_blank" rel="noopener">
+        Inizia gratis →
+      </a>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .report-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 24px 0;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--ink3);
+    margin-bottom: 28px;
+  }
+
+  .breadcrumb a {
+    color: var(--ink3);
+    transition: color 0.15s;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--acc);
+  }
+
+  .report-header {
+    margin-bottom: 32px;
+  }
+
+  .cat-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--acc);
+    background: var(--acc-bg);
+    border: 1px solid var(--acc-border);
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+
+  .report-header h1 {
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.25;
+    margin-bottom: 14px;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--ink3);
+    flex-wrap: wrap;
+  }
+
+  .meta-sep {
+    opacity: 0.5;
+  }
+
+  /* KEY NUMBERS */
+  .key-numbers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  @media (max-width: 600px) {
+    .key-numbers {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .key-num-card {
+    background: var(--surface);
+    border-radius: 10px;
+    padding: 18px 16px;
+  }
+
+  .key-num-value {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--acc);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .key-num-label {
+    font-size: 12px;
+    color: var(--ink2);
+    line-height: 1.4;
+  }
+
+  /* BODY TYPOGRAPHY */
+  .report-body :global(h2) {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    margin: 40px 0 12px;
+  }
+
+  .report-body :global(h3) {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 28px 0 8px;
+  }
+
+  .report-body :global(p) {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--ink2);
+    margin-bottom: 16px;
+  }
+
+  .report-body :global(ul),
+  .report-body :global(ol) {
+    padding-left: 24px;
+    margin-bottom: 16px;
+  }
+
+  .report-body :global(li) {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--ink2);
+    margin-bottom: 6px;
+  }
+
+  .report-body :global(strong) {
+    color: var(--ink1);
+    font-weight: 600;
+  }
+
+  .report-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 24px 0;
+    overflow-x: auto;
+    display: block;
+  }
+
+  .report-body :global(thead tr) {
+    background: var(--ink1);
+    color: #fff;
+  }
+
+  .report-body :global(th) {
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  .report-body :global(td) {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink2);
+  }
+
+  .report-body :global(tbody tr:nth-child(even)) {
+    background: var(--surface);
+  }
+
+  .report-body :global(.callout-warn) {
+    background: #FFFBEB;
+    border-left: 3px solid #F59E0B;
+    color: #92400E;
+    padding: 14px 16px;
+    border-radius: 6px;
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .report-body :global(.callout-info) {
+    background: var(--acc-bg);
+    border-left: 3px solid var(--acc-border);
+    color: var(--ink1);
+    padding: 14px 16px;
+    border-radius: 6px;
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* CTA INLINE */
+  .cta-inline {
+    background: var(--acc-bg);
+    border: 1px solid var(--acc-border);
+    border-radius: 12px;
+    padding: 28px 24px;
+    margin: 48px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .cta-inline p {
+    font-size: 15px;
+    color: var(--ink1) !important;
+    font-weight: 500;
+    margin: 0 !important;
+  }
+
+  /* CTA FOOTER DARK */
+  .cta-footer-dark {
+    background: var(--acc);
+    margin-top: 60px;
+  }
+
+  .cta-footer-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 60px 24px;
+    text-align: center;
+  }
+
+  .cta-footer-inner h2 {
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .cta-footer-inner p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 28px;
+  }
+
+  .btn-white {
+    background: #fff;
+    color: var(--acc);
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 15px;
+    display: inline-block;
+    transition: opacity 0.15s;
+  }
+
+  .btn-white:hover {
+    opacity: 0.9;
+  }
+</style>

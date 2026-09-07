@@ -1,0 +1,204 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const FORM_URL = 'YOUR_FORM_LINK_HERE';
+
+const allReports = await Astro.glob('./*.md');
+
+const reports = allReports
+  .filter((r) => r.frontmatter.published !== false)
+  .sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime());
+---
+
+<Base
+  title="Report — RepoStudio"
+  description="Tutti i report pubblicati da RepoStudio: brief settimanali su mercati, normative, bandi e trend locali."
+  canonical="https://repostudio.it/report/"
+>
+
+<div class="page-wrap">
+  <div class="page-header">
+    <div class="section-label">Report pubblicati</div>
+    <h1>Ricerche già pronte.</h1>
+    <p class="page-sub">Ogni brief è prodotto con lo stesso metodo delle ricerche su misura — fonti verificate, sintesi chiara, subito utilizzabile.</p>
+  </div>
+
+  {reports.length === 0 ? (
+    <div class="empty-state">
+      <p>Nessun report ancora pubblicato. Torna presto.</p>
+    </div>
+  ) : (
+    <div class="reports-grid">
+      {reports.map((r) => {
+        const { title, description, date, category, zona, slug } = r.frontmatter;
+        const dateFormatted = new Date(date).toLocaleDateString('it-IT', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        });
+        return (
+          <a href={`/report/${slug}/`} class="report-card">
+            <div class="report-card-top">
+              <span class="cat-badge">{category}</span>
+              <span class="report-date">{dateFormatted}</span>
+            </div>
+            <h2>{title}</h2>
+            <p>{description}</p>
+            <div class="report-card-bottom">
+              <span class="report-zona">{zona}</span>
+              <span class="report-arrow">→</span>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  )}
+
+  <div class="cta-banner">
+    <span>Non trovi la ricerca che ti serve?</span>
+    <a href={FORM_URL} target="_blank" rel="noopener">Richiedila su misura →</a>
+  </div>
+</div>
+
+</Base>
+
+<style>
+  .page-wrap {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+
+  .page-header {
+    margin-bottom: 48px;
+    max-width: 600px;
+  }
+
+  .page-header h1 {
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 14px;
+    margin-top: 10px;
+  }
+
+  .page-sub {
+    font-size: 16px;
+    color: var(--ink2);
+    line-height: 1.65;
+  }
+
+  .reports-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 640px) {
+    .reports-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .report-card {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-decoration: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .report-card:hover {
+    border-color: var(--acc-border);
+    box-shadow: 0 2px 16px rgba(108,99,255,0.08);
+  }
+
+  .report-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .cat-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--acc);
+    background: var(--acc-bg);
+    border: 1px solid var(--acc-border);
+    padding: 2px 9px;
+    border-radius: 20px;
+  }
+
+  .report-date {
+    font-size: 12px;
+    color: var(--ink3);
+  }
+
+  .report-card h2 {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+    color: var(--ink1);
+  }
+
+  .report-card p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink2);
+    flex: 1;
+  }
+
+  .report-card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+
+  .report-zona {
+    font-size: 12px;
+    color: var(--ink3);
+  }
+
+  .report-arrow {
+    color: var(--acc);
+    font-size: 16px;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 24px;
+    color: var(--ink3);
+    font-size: 15px;
+  }
+
+  .cta-banner {
+    background: var(--acc);
+    color: #fff;
+    border-radius: 14px;
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .cta-banner a {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+</style>
