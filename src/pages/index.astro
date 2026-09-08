@@ -97,17 +97,20 @@ import { FORM_URL, SLOTS } from '../config';
 <section class="sec sec-surf">
   <div class="sec-hd">per chi è</div>
   <div class="perchi-grid">
-    <div class="perchi-card">
-      <div class="perchi-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg></div>
-      <div class="perchi-body"><h3>Devi prendere una decisione</h3><p>Aprire un'attività, entrare in un mercato, scegliere un fornitore, valutare un competitor. <b>Ti serve una base informativa solida, velocemente</b> — senza passare giorni a cercare.</p></div>
+    <div class="perchi-item">
+      <div class="perchi-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+      <h3>Devi prendere una decisione</h3>
+      <p>Aprire un'attività, entrare in un mercato, scegliere un fornitore, valutare un competitor. <b>Ti serve una base informativa solida, velocemente</b> — senza passare giorni a cercare.</p>
     </div>
-    <div class="perchi-card">
-      <div class="perchi-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></div>
-      <div class="perchi-body"><h3>Devi restare aggiornato</h3><p>Normative, bandi, mercato, settore. <b>Non hai tempo di monitorare tutto da solo</b>, ma non puoi permetterti di perdere informazioni importanti.</p></div>
+    <div class="perchi-item">
+      <div class="perchi-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h3>Devi restare aggiornato</h3>
+      <p>Normative, bandi, mercato, settore. <b>Non hai tempo di monitorare tutto da solo</b>, ma non puoi permetterti di perdere informazioni importanti.</p>
     </div>
-    <div class="perchi-card">
-      <div class="perchi-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-      <div class="perchi-body"><h3>Devi convincere qualcuno</h3><p>Un socio, un cliente, una banca, un investitore. <b>Ti serve un documento professionale, con fonti, che parli da solo</b> — senza che tu debba spiegare tutto ogni volta.</p></div>
+    <div class="perchi-item">
+      <div class="perchi-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h3>Devi convincere qualcuno</h3>
+      <p>Un socio, un cliente, una banca, un investitore. <b>Ti serve un documento professionale, con fonti, che parli da solo</b> — senza che tu debba spiegare tutto ogni volta.</p>
     </div>
   </div>
 </section>
@@ -115,13 +118,37 @@ import { FORM_URL, SLOTS } from '../config';
 <!-- SERVIZI -->
 <section class="sec" id="servizi">
   <div class="sec-hd">cosa posso cercare</div>
-  <div class="svc-grid">
-    <a class="svc svc-featured" href={FORM_URL}><div class="svc-top"><span class="svc-cat">monitoraggio</span><span>↗</span></div><h3>Trova i bandi giusti per la tua impresa</h3><p>PNRR, bandi europei e regionali filtrati per il tuo settore, con scadenze e requisiti sintetizzati.</p></a>
-    <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">monitoraggio</span><span>↗</span></div><h3>Monitora il mercato immobiliare locale</h3><p>Notizie locali, variazioni PRG, trend nazionali ogni settimana. Da girare ai tuoi clienti come valore aggiunto.</p></a>
-    <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">normativo</span><span>↗</span></div><h3>Resta aggiornato sulle normative affitti brevi</h3><p>CIN, cedolare secca, obblighi regionali, scadenze. In linguaggio semplice, senza legalese.</p></a>
-    <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">intelligence</span><span>↗</span></div><h3>Monitora i tuoi competitor senza cercarlo tu</h3><p>Brief giornaliero o settimanale su settore, competitor o brand. Fonti: news, RSS, comunicati.</p></a>
-    <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">lead generation</span><span>↗</span></div><h3>Trova i lead giusti per il tuo prodotto</h3><p>Aziende italiane potenzialmente interessate a quello che vendi — cercate, classificate, consegnate.</p></a>
-    <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">su misura</span><span>↗</span></div><h3>Qualsiasi ricerca su misura — chiedimi</h3><p>Competitor in Germania, un mercato da analizzare, distributori in Francia — se è ricercabile, lo trovo.</p></a>
+  <div class="svc-list">
+    <a class="svc-row" href={FORM_URL}>
+      <span class="svc-cat">monitoraggio</span>
+      <div class="svc-body"><h3>Trova i bandi giusti per la tua impresa</h3><p>PNRR, bandi europei e regionali filtrati per il tuo settore, con scadenze e requisiti sintetizzati.</p></div>
+      <div class="svc-price"><span class="svc-price-free">€0 ora</span><span class="svc-price-after">poi su misura</span></div>
+    </a>
+    <a class="svc-row" href={FORM_URL}>
+      <span class="svc-cat">monitoraggio</span>
+      <div class="svc-body"><h3>Monitora il mercato immobiliare locale</h3><p>Notizie locali, variazioni PRG, trend nazionali ogni settimana. Da girare ai tuoi clienti come valore aggiunto.</p></div>
+      <div class="svc-price"><span class="svc-price-free">€0 ora</span><span class="svc-price-after">poi su misura</span></div>
+    </a>
+    <a class="svc-row" href={FORM_URL}>
+      <span class="svc-cat">normativo</span>
+      <div class="svc-body"><h3>Resta aggiornato sulle normative affitti brevi</h3><p>CIN, cedolare secca, obblighi regionali, scadenze. In linguaggio semplice, senza legalese.</p></div>
+      <div class="svc-price"><span class="svc-price-free">€0 ora</span><span class="svc-price-after">poi su misura</span></div>
+    </a>
+    <a class="svc-row" href={FORM_URL}>
+      <span class="svc-cat">intelligence</span>
+      <div class="svc-body"><h3>Monitora i tuoi competitor senza cercarlo tu</h3><p>Brief giornaliero o settimanale su settore, competitor o brand. Fonti: news, RSS, comunicati.</p></div>
+      <div class="svc-price"><span class="svc-price-free">€0 ora</span><span class="svc-price-after">poi su misura</span></div>
+    </a>
+    <a class="svc-row" href={FORM_URL}>
+      <span class="svc-cat">lead generation</span>
+      <div class="svc-body"><h3>Trova i lead giusti per il tuo prodotto</h3><p>Aziende italiane potenzialmente interessate a quello che vendi — cercate, classificate, consegnate.</p></div>
+      <div class="svc-price"><span class="svc-price-free">€0 ora</span><span class="svc-price-after">poi su misura</span></div>
+    </a>
+    <a class="svc-row" href={FORM_URL}>
+      <span class="svc-cat">su misura</span>
+      <div class="svc-body"><h3>Qualsiasi ricerca su misura — chiedimi</h3><p>Competitor in Germania, un mercato da analizzare, distributori in Francia — se è ricercabile, lo trovo.</p></div>
+      <div class="svc-price"><span class="svc-price-free">€0 ora</span><span class="svc-price-after">poi su misura</span></div>
+    </a>
   </div>
   <a class="any-request" href={FORM_URL}>
     <span class="any-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
@@ -133,10 +160,19 @@ import { FORM_URL, SLOTS } from '../config';
 <!-- COME FUNZIONA -->
 <section class="sec">
   <div class="sec-hd">come funziona</div>
-  <div class="steps">
-    <div class="step"><div class="step-n">01</div><h3>Dimmi cosa vuoi sapere</h3><p>Due righe bastano. Ci penso io a fare le domande giuste nella call.</p></div>
-    <div class="step hl"><div class="step-n">02</div><h3>Una call breve</h3><p>Ti scrivo entro 24 ore. Una call breve per capire esattamente cosa ti serve — senza malintesi.</p></div>
-    <div class="step"><div class="step-n">03</div><h3>Report pronto da usare</h3><p>PDF con fonti citate e conclusioni azionabili. Puoi condividerlo con chiunque.</p></div>
+  <div class="steps-timeline">
+    <div class="step-tl">
+      <div class="step-tl-dot"><span>01</span></div>
+      <div class="step-tl-body"><h3>Dimmi cosa vuoi sapere</h3><p>Due righe bastano. Ci penso io a fare le domande giuste nella call.</p></div>
+    </div>
+    <div class="step-tl">
+      <div class="step-tl-dot"><span>02</span></div>
+      <div class="step-tl-body"><h3>Una call breve</h3><p>Ti scrivo entro 24 ore. Una call breve per capire esattamente cosa ti serve — senza malintesi.</p></div>
+    </div>
+    <div class="step-tl">
+      <div class="step-tl-dot"><span>03</span></div>
+      <div class="step-tl-body"><h3>Report pronto da usare</h3><p>PDF con fonti citate e conclusioni azionabili. Puoi condividerlo con chiunque.</p></div>
+    </div>
   </div>
 </section>
 
@@ -171,31 +207,39 @@ import { FORM_URL, SLOTS } from '../config';
 <!-- IL METODO -->
 <section class="sec sec-surf" id="metodo">
   <div class="sec-hd">il metodo</div>
-  <p class="metodo-intro">Non improvviso. Ogni ricerca segue un metodo preciso — perché <b>la differenza tra un'informazione utile e una inutile sta in come la cerchi.</b></p>
-  <div class="metodo-steps">
-    <div class="ms"><div class="ms-left"><div class="ms-num">1</div><div class="ms-line"></div></div><div class="ms-body"><div class="ms-head"><span class="ms-title">Brief</span><span class="ms-tag tag-both">Jack + AI</span></div><div class="ms-desc">Capisco cosa vuoi sapere e perché — <b>spesso la domanda giusta è diversa da quella che mi arriva</b>, e questo è il momento in cui lo scopriamo.</div></div></div>
-    <div class="ms"><div class="ms-left"><div class="ms-num">2</div><div class="ms-line"></div></div><div class="ms-body"><div class="ms-head"><span class="ms-title">Ricerca</span><span class="ms-tag tag-ai">AI</span></div><div class="ms-desc">L'AI aggrega sistematicamente: news, normative, competitor, dati pubblici. <b>Tutto verificabile, tutto citato.</b> Nessuna fonte inventata.</div></div></div>
-    <div class="ms"><div class="ms-left"><div class="ms-num">3</div><div class="ms-line"></div></div><div class="ms-body"><div class="ms-head"><span class="ms-title">Sintesi</span><span class="ms-tag tag-ai">AI</span></div><div class="ms-desc">Le fonti diventano insight: <b>risposta diretta alla tua domanda, dati chiave, segnali di rischio</b> che non avresti trovato cercando da solo.</div></div></div>
-    <div class="ms"><div class="ms-left"><div class="ms-num">4</div><div class="ms-line"></div></div><div class="ms-body"><div class="ms-head"><span class="ms-title">Report</span><span class="ms-tag tag-both">Jack + AI</span></div><div class="ms-desc">L'AI struttura, io rivedo. <b>Executive summary, findings, fonti citate</b> — un documento pronto da condividere con team o soci.</div></div></div>
-    <div class="ms"><div class="ms-left"><div class="ms-num">5</div></div><div class="ms-body"><div class="ms-head"><span class="ms-title">Check finale</span><span class="ms-tag tag-jack">Jack</span></div><div class="ms-desc">Prima di consegnare: <b>risponde davvero alla domanda? Ogni dato ha una fonte?</b> Se una risposta è no, il report non parte.</div></div></div>
-  </div>
-  <div class="metodo-legend">
-    <div class="legend-item"><span class="legend-dot ld-ai"></span>Fatto dall'AI</div>
-    <div class="legend-item"><span class="legend-dot ld-jack"></span>Fatto da Jack</div>
-    <div class="legend-item"><span class="legend-dot ld-both"></span>Jack + AI insieme</div>
+  <div class="metodo-split">
+    <div class="metodo-left">
+      <h2>Un metodo preciso,<br>non improvvisazione.</h2>
+      <p>Ogni ricerca segue un processo definito — perché <b>la differenza tra un'informazione utile e una inutile sta in come la cerchi.</b></p>
+      <div class="metodo-legend">
+        <div class="legend-item"><span class="legend-dot ld-ai"></span>Fatto dall'AI</div>
+        <div class="legend-item"><span class="legend-dot ld-jack"></span>Fatto da Jack</div>
+        <div class="legend-item"><span class="legend-dot ld-both"></span>Jack + AI insieme</div>
+      </div>
+    </div>
+    <div class="metodo-steps">
+      <div class="ms"><div class="ms-left"><div class="ms-num">1</div><div class="ms-line"></div></div><div class="ms-body"><div class="ms-head"><span class="ms-title">Brief</span><span class="ms-tag tag-both">Jack + AI</span></div><div class="ms-desc">Capisco cosa vuoi sapere e perché — <b>spesso la domanda giusta è diversa da quella che mi arriva</b>, e questo è il momento in cui lo scopriamo.</div></div></div>
+      <div class="ms"><div class="ms-left"><div class="ms-num">2</div><div class="ms-line"></div></div><div class="ms-body"><div class="ms-head"><span class="ms-title">Ricerca</span><span class="ms-tag tag-ai">AI</span></div><div class="ms-desc">L'AI aggrega sistematicamente: news, normative, competitor, dati pubblici. <b>Tutto verificabile, tutto citato.</b> Nessuna fonte inventata.</div></div></div>
+      <div class="ms"><div class="ms-left"><div class="ms-num">3</div><div class="ms-line"></div></div><div class="ms-body"><div class="ms-head"><span class="ms-title">Sintesi</span><span class="ms-tag tag-ai">AI</span></div><div class="ms-desc">Le fonti diventano insight: <b>risposta diretta alla tua domanda, dati chiave, segnali di rischio</b> che non avresti trovato cercando da solo.</div></div></div>
+      <div class="ms"><div class="ms-left"><div class="ms-num">4</div><div class="ms-line"></div></div><div class="ms-body"><div class="ms-head"><span class="ms-title">Report</span><span class="ms-tag tag-both">Jack + AI</span></div><div class="ms-desc">L'AI struttura, io rivedo. <b>Executive summary, findings, fonti citate</b> — un documento pronto da condividere con team o soci.</div></div></div>
+      <div class="ms"><div class="ms-left"><div class="ms-num">5</div></div><div class="ms-body"><div class="ms-head"><span class="ms-title">Check finale</span><span class="ms-tag tag-jack">Jack</span></div><div class="ms-desc">Prima di consegnare: <b>risponde davvero alla domanda? Ogni dato ha una fonte?</b> Se una risposta è no, il report non parte.</div></div></div>
+    </div>
   </div>
 </section>
 
 <!-- FAQ -->
 <section class="sec" id="faq">
   <div class="sec-hd">domande frequenti</div>
-  <div class="faq-wrap">
-    <div class="faq">
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Usi solo fonti pubbliche — cosa trovi che non potrei trovare da solo?</span><span class="faq-icon">+</span></button><div class="faq-a"><p>La differenza non è nelle fonti — è nel <b>metodo e nel tempo</b>. Cercare bene richiede sapere dove guardare, come incrociare le informazioni e cosa scartare. L'AI processa in minuti quello che a te richiederebbe ore. Io poi filtro, verifico e trasformo tutto in qualcosa che puoi usare subito.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Il report è generato dall'AI o lo scrivi tu?</span><span class="faq-icon">+</span></button><div class="faq-a"><p>Entrambe le cose — in modo preciso. <b>L'AI fa la ricerca e la sintesi</b>, che sono le parti più lente e meccaniche. <b>Io faccio il brief, la revisione e il check finale</b> — che sono le parti che richiedono giudizio. Nessun report parte senza che io l'abbia letto e verificato.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Posso richiedere una ricerca su un argomento molto specifico o di nicchia?</span><span class="faq-icon">+</span></button><div class="faq-a"><p>Sì — anzi, le ricerche più specifiche sono spesso le più utili. Se hai un dubbio su un mercato di nicchia, un competitor poco noto o una normativa settoriale, <b>scrivimi comunque</b>. Se non riesco a fare la ricerca ti dico subito perché, senza farti perdere tempo.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Cosa succede dopo la beta? Quanto costerà?</span><span class="faq-icon">+</span></button><div class="faq-a"><p>Non lo so ancora con precisione — dipende da quello che imparerò in questa fase. Quello che posso dirti è che <b>chi partecipa alla beta avrà condizioni migliori</b> di chi arriverà dopo. E che non aumenterò i prezzi senza avvisare in anticipo.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Quanto tempo ci vuole per ricevere il report?</span><span class="faq-icon">+</span></button><div class="faq-a"><p>Dipende dalla complessità della ricerca. <b>Ti dico i tempi precisi dopo la call</b>, quando ho capito cosa ti serve davvero. Non prometto tempi fissi per non darti un report fatto di fretta.</p></div></div>
+  <div class="faq-split">
+    <div class="faq-questions">
+      <div class="faq-q-item active" onclick="selectFaq(this,0)">Usi solo fonti pubbliche — cosa trovi che non potrei trovare da solo?</div>
+      <div class="faq-q-item" onclick="selectFaq(this,1)">Il report è generato dall'AI o lo scrivi tu?</div>
+      <div class="faq-q-item" onclick="selectFaq(this,2)">Posso richiedere una ricerca su un argomento molto specifico o di nicchia?</div>
+      <div class="faq-q-item" onclick="selectFaq(this,3)">Cosa succede dopo la beta? Quanto costerà?</div>
+      <div class="faq-q-item" onclick="selectFaq(this,4)">Quanto tempo ci vuole per ricevere il report?</div>
+    </div>
+    <div class="faq-answer-panel">
+      <p>La differenza non è nelle fonti — è nel <b>metodo e nel tempo</b>. Cercare bene richiede sapere dove guardare, come incrociare le informazioni e cosa scartare. L'AI processa in minuti quello che a te richiederebbe ore. Io poi filtro, verifico e trasformo tutto in qualcosa che puoi usare subito.</p>
     </div>
   </div>
 </section>
@@ -308,29 +352,36 @@ import { FORM_URL, SLOTS } from '../config';
 .sec-hd::after{content:'';flex:1;height:0.5px;background:var(--line)}
 
 /* STEPS */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-@media(max-width:600px){.steps{grid-template-columns:1fr}}
-.step{padding:22px;border:0.5px solid var(--line);border-radius:10px;transition:border-color 0.15s,box-shadow 0.15s,transform 0.15s}
-.step:hover{border-color:var(--acc-border);box-shadow:0 4px 16px rgba(108,99,255,0.08);transform:translateY(-1px)}
-.step.hl{border-color:var(--acc-border);background:var(--acc-bg)}
-.step-n{font-size:11px;font-weight:500;color:var(--acc);margin-bottom:12px}
-.step h3{font-size:15px;font-weight:500;margin-bottom:6px;line-height:1.25}
-.step p{font-size:14px;color:var(--ink2);line-height:1.55}
+.steps-timeline{display:grid;grid-template-columns:repeat(3,1fr);position:relative}
+@media(max-width:600px){.steps-timeline{grid-template-columns:1fr}}
+.steps-timeline::before{content:'';position:absolute;top:20px;left:calc(100% / 6);right:calc(100% / 6);height:0.5px;background:var(--line);z-index:0}
+@media(max-width:600px){.steps-timeline::before{display:none}}
+.step-tl{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 20px;position:relative}
+.step-tl-dot{width:40px;height:40px;border-radius:50%;border:0.5px solid var(--acc-border);background:var(--acc-bg);display:flex;align-items:center;justify-content:center;margin-bottom:20px;position:relative;z-index:1;flex-shrink:0}
+.step-tl-dot span{font-size:12px;font-weight:600;color:var(--acc)}
+.step-tl-body h3{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:8px;line-height:1.3}
+.step-tl-body p{font-size:14px;color:var(--ink2);line-height:1.55}
 
 /* PER CHI È */
-.perchi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.perchi-grid{display:grid;grid-template-columns:repeat(3,1fr);border:0.5px solid var(--line);border-radius:12px;overflow:hidden}
 @media(max-width:700px){.perchi-grid{grid-template-columns:1fr}}
-.perchi-card{border:0.5px solid var(--line);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:14px;transition:border-color 0.15s,box-shadow 0.15s,transform 0.15s}
-.perchi-card:hover{border-color:var(--acc-border);box-shadow:0 4px 16px rgba(108,99,255,0.08);transform:translateY(-1px)}
-.perchi-icon{width:36px;height:36px;border-radius:8px;background:var(--acc-bg);border:0.5px solid var(--acc-border);display:flex;align-items:center;justify-content:center;color:var(--acc)}
-.perchi-icon svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.perchi-body h3{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:6px;line-height:1.3}
-.perchi-body p{font-size:14px;color:var(--ink2);line-height:1.6}
-.perchi-body p b{color:var(--ink);font-weight:500}
+.perchi-item{padding:28px 24px;border-right:0.5px solid var(--line);display:flex;flex-direction:column;gap:16px}
+.perchi-item:last-child{border-right:none}
+@media(max-width:700px){.perchi-item{border-right:none;border-bottom:0.5px solid var(--line)}}
+@media(max-width:700px){.perchi-item:last-child{border-bottom:none}}
+.perchi-icon{width:44px;height:44px;border-radius:10px;background:var(--acc-bg);border:0.5px solid var(--acc-border);display:flex;align-items:center;justify-content:center;color:var(--acc)}
+.perchi-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.perchi-item h3{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:4px;line-height:1.3}
+.perchi-item p{font-size:14px;color:var(--ink2);line-height:1.6}
+.perchi-item p b{color:var(--ink);font-weight:500}
 
 /* METODO */
-.metodo-intro{font-size:15px;color:var(--ink2);line-height:1.65;max-width:600px;margin-bottom:32px}
-.metodo-intro b{color:var(--ink);font-weight:500}
+.metodo-split{display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:start}
+@media(max-width:800px){.metodo-split{grid-template-columns:1fr;gap:32px}}
+.metodo-left{position:sticky;top:80px}
+.metodo-left h2{font-size:clamp(20px,2.5vw,26px);font-weight:500;letter-spacing:-0.8px;line-height:1.2;margin-bottom:14px;color:var(--ink)}
+.metodo-left>p{font-size:14px;color:var(--ink2);line-height:1.7;margin-bottom:24px}
+.metodo-left>p b{color:var(--ink);font-weight:500}
 .metodo-steps{display:flex;flex-direction:column}
 .ms{display:flex;gap:20px;padding:20px 0;border-bottom:0.5px solid var(--line);align-items:flex-start}
 .ms:last-child{border-bottom:none}
@@ -338,7 +389,7 @@ import { FORM_URL, SLOTS } from '../config';
 .ms-num{width:28px;height:28px;border-radius:50%;border:0.5px solid var(--acc-border);background:var(--acc-bg);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--acc)}
 .ms-line{width:0.5px;flex:1;min-height:16px;background:var(--line);margin-top:6px}
 .ms:last-child .ms-line{display:none}
-.ms-body{flex:1;padding-top:4px;max-width:640px}
+.ms-body{flex:1;padding-top:4px}
 .ms-head{display:flex;align-items:center;gap:10px;margin-bottom:7px}
 .ms-title{font-size:15px;font-weight:500;color:var(--ink);letter-spacing:-0.2px}
 .ms-tag{font-size:10px;font-weight:500;padding:2px 8px;border-radius:3px}
@@ -347,23 +398,24 @@ import { FORM_URL, SLOTS } from '../config';
 .tag-both{background:rgba(236,72,153,0.07);color:#db2777;border:0.5px solid rgba(236,72,153,0.18)}
 .ms-desc{font-size:14px;color:var(--ink2);line-height:1.65}
 .ms-desc b{color:var(--ink);font-weight:500}
-.metodo-legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:0.5px solid var(--line)}
-.legend-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--ink3)}
-.legend-dot{width:8px;height:8px;border-radius:2px}
+.metodo-legend{display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:0.5px solid var(--line)}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink2)}
+.legend-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
 .ld-ai{background:var(--acc)}.ld-jack{background:#22c55e}.ld-both{background:#ec4899}
 
 /* SERVIZI */
-.svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:start}
-@media(max-width:700px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:480px){.svc-grid{grid-template-columns:1fr}}
-.svc{border:0.5px solid var(--line);border-radius:10px;padding:18px 20px;cursor:pointer;transition:border-color 0.15s,box-shadow 0.15s,transform 0.15s;text-decoration:none;display:block;color:inherit}
-.svc:hover{border-color:var(--acc-border);box-shadow:0 4px 16px rgba(108,99,255,0.08);transform:translateY(-1px)}
-.svc-featured{border-color:var(--acc-border);background:var(--acc-bg)}
-.svc-featured .svc-cat{font-weight:600}
-.svc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.svc-cat{font-size:10px;font-weight:500;color:var(--acc)}
-.svc h3{font-size:14px;font-weight:500;margin-bottom:5px;line-height:1.3;color:var(--ink)}
-.svc p{font-size:14px;color:var(--ink2);line-height:1.5}
+.svc-list{border:0.5px solid var(--line);border-radius:12px;overflow:hidden}
+.svc-row{display:grid;grid-template-columns:110px 1fr auto;gap:20px;padding:18px 22px;border-bottom:0.5px solid var(--line);align-items:center;text-decoration:none;color:inherit;transition:background 0.15s}
+.svc-row:last-child{border-bottom:none}
+.svc-row:hover{background:var(--surf)}
+@media(max-width:620px){.svc-row{grid-template-columns:1fr;gap:6px}}
+.svc-cat{font-size:11px;font-weight:500;color:var(--acc);letter-spacing:0.3px}
+.svc-body h3{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:3px;line-height:1.3}
+.svc-body p{font-size:13px;color:var(--ink2);line-height:1.5}
+.svc-price{display:flex;flex-direction:column;gap:2px;align-items:flex-end;flex-shrink:0}
+.svc-price-free{font-size:14px;font-weight:600;color:var(--acc);white-space:nowrap}
+.svc-price-after{font-size:11px;color:var(--ink3);white-space:nowrap}
+@media(max-width:620px){.svc-price{align-items:flex-start}}
 .any-request{display:flex;align-items:center;gap:12px;padding:14px 18px;border:0.5px solid var(--line);border-radius:10px;margin-top:10px;background:var(--surf);text-decoration:none;color:inherit;transition:border-color 0.1s}
 .any-request:hover{border-color:var(--acc)}
 .any-icon{color:var(--acc);flex-shrink:0}
@@ -373,18 +425,18 @@ import { FORM_URL, SLOTS } from '../config';
 .any-arr{font-size:14px;color:var(--ink3);margin-left:auto}
 
 /* FAQ */
-.faq-wrap{max-width:720px;margin:0 auto}
-.faq{display:flex;flex-direction:column}
-.faq-item{border-bottom:0.5px solid var(--line);overflow:hidden}
-.faq-item:last-child{border-bottom:none}
-.faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 0;cursor:pointer;gap:16px;background:none;border:none;width:100%;text-align:left}
-.faq-q-text{font-size:15px;font-weight:500;color:var(--ink);line-height:1.3;flex:1}
-.faq-icon{color:var(--ink3);flex-shrink:0;transition:transform 0.2s;font-size:20px;line-height:1;font-weight:300}
-.faq-item.open .faq-icon{transform:rotate(45deg);color:var(--acc)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease,padding 0.3s ease}
-.faq-item.open .faq-a{max-height:300px;padding-bottom:18px}
-.faq-a p{font-size:14px;color:var(--ink2);line-height:1.7}
-.faq-a p b{color:var(--ink);font-weight:500}
+.faq-split{display:grid;grid-template-columns:1fr 1.4fr;gap:32px;align-items:start}
+@media(max-width:700px){.faq-split{grid-template-columns:1fr}}
+.faq-questions{display:flex;flex-direction:column}
+.faq-q-item{padding:14px 0;border-bottom:0.5px solid var(--line);font-size:14px;font-weight:500;color:var(--ink2);cursor:pointer;line-height:1.35;transition:color 0.15s;user-select:none}
+.faq-q-item:first-child{padding-top:0}
+.faq-q-item:last-child{border-bottom:none;padding-bottom:0}
+.faq-q-item:hover{color:var(--ink)}
+.faq-q-item.active{color:var(--acc)}
+.faq-answer-panel{padding:24px;background:var(--surf);border-radius:12px;border:0.5px solid var(--line);min-height:160px}
+.faq-answer-panel p{font-size:14px;color:var(--ink2);line-height:1.7}
+.faq-answer-panel p b{color:var(--ink);font-weight:500}
+@media(max-width:700px){.faq-answer-panel{min-height:auto}}
 
 /* HONEST */
 .honest{border:0.5px solid var(--acc-border);border-radius:12px;padding:36px;background:var(--acc-bg);max-width:720px;margin:0 auto}
@@ -434,11 +486,19 @@ import { FORM_URL, SLOTS } from '../config';
 </style>
 
 <script>
-function toggleFaq(btn: HTMLButtonElement) {
-  const item = btn.parentElement!;
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
+const faqAnswers = [
+  `La differenza non è nelle fonti — è nel <b>metodo e nel tempo</b>. Cercare bene richiede sapere dove guardare, come incrociare le informazioni e cosa scartare. L'AI processa in minuti quello che a te richiederebbe ore. Io poi filtro, verifico e trasformo tutto in qualcosa che puoi usare subito.`,
+  `Entrambe le cose — in modo preciso. <b>L'AI fa la ricerca e la sintesi</b>, che sono le parti più lente e meccaniche. <b>Io faccio il brief, la revisione e il check finale</b> — che sono le parti che richiedono giudizio. Nessun report parte senza che io l'abbia letto e verificato.`,
+  `Sì — anzi, le ricerche più specifiche sono spesso le più utili. Se hai un dubbio su un mercato di nicchia, un competitor poco noto o una normativa settoriale, <b>scrivimi comunque</b>. Se non riesco a fare la ricerca ti dico subito perché, senza farti perdere tempo.`,
+  `Non lo so ancora con precisione — dipende da quello che imparerò in questa fase. Quello che posso dirti è che <b>chi partecipa alla beta avrà condizioni migliori</b> di chi arriverà dopo. E che non aumenterò i prezzi senza avvisare in anticipo.`,
+  `Dipende dalla complessità della ricerca. <b>Ti dico i tempi precisi dopo la call</b>, quando ho capito cosa ti serve davvero. Non prometto tempi fissi per non darti un report fatto di fretta.`,
+];
+
+function selectFaq(el: HTMLElement, idx: number) {
+  document.querySelectorAll('.faq-q-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+  const panel = document.querySelector('.faq-answer-panel')!;
+  panel.innerHTML = '<p>' + faqAnswers[idx] + '</p>';
 }
 
 const S = [
@@ -539,12 +599,11 @@ loop();
 
   // Scroll groups: stagger children within each container
   const groups: [string, string, number][] = [
-    ['.perchi-grid', '.perchi-card', 80],
-    ['.svc-grid',    '.svc',         60],
-    ['.steps',       '.step',        80],
-    ['.rpt-grid',    '.rpt-card',    70],
-    ['.metodo-steps','.ms',          55],
-    ['.faq',         '.faq-item',    45],
+    ['.perchi-grid',    '.perchi-item', 80],
+    ['.svc-list',       '.svc-row',    60],
+    ['.steps-timeline', '.step-tl',    80],
+    ['.rpt-grid',       '.rpt-card',   70],
+    ['.metodo-steps',   '.ms',         55],
   ];
   groups.forEach(([parent, child, gap]) => {
     document.querySelectorAll(parent).forEach(p =>
