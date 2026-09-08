@@ -33,8 +33,7 @@ body{font-family:var(--font);color:var(--ink);background:#fff;-webkit-font-smoot
   align-items:center;
   justify-content:center;
   gap:8px;
-  position:sticky;
-  top:0;
+  position:relative;
   z-index:100;
 }
 .top-banner-dot{width:6px;height:6px;background:#22c55e;border-radius:50%;flex-shrink:0;animation:gp 2s ease-in-out infinite}
@@ -51,7 +50,7 @@ body{font-family:var(--font);color:var(--ink);background:#fff;-webkit-font-smoot
   padding:14px 0;
   border-bottom:0.5px solid var(--line);
   position:sticky;
-  top:37px;
+  top:0;
   z-index:99;
   background:#fff;
 }
