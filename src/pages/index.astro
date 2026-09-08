@@ -118,36 +118,42 @@ import { FORM_URL, SLOTS } from '../config';
 <!-- SERVIZI -->
 <section class="sec" id="servizi">
   <div class="sec-hd">cosa posso cercare</div>
-  <div class="svc-list">
-    <a class="svc-row" href={FORM_URL}>
-      <span class="svc-cat">monitoraggio</span>
-      <div class="svc-body"><h3>Trova i bandi giusti per la tua impresa</h3><p>PNRR, bandi europei e regionali filtrati per il tuo settore, con scadenze e requisiti sintetizzati.</p></div>
-      <div class="svc-price"><span class="svc-price-free">€0 ora</span><span class="svc-price-after">poi su misura</span></div>
+  <div class="svc-grid-v">
+    <a class="svc-card-l featured" href={FORM_URL}>
+      <span class="svc-card-l-cat">bandi</span>
+      <div class="svc-card-l-name">Trova i bandi giusti per la tua impresa</div>
+      <div class="svc-card-l-desc">PNRR, bandi europei e regionali filtrati per il tuo settore, con scadenze e requisiti sintetizzati.</div>
+      <div class="svc-card-l-ft"><span class="svc-card-l-free">Gratis ora</span><span class="svc-card-l-after">poi 80–200€/mese</span></div>
     </a>
-    <a class="svc-row" href={FORM_URL}>
-      <span class="svc-cat">monitoraggio</span>
-      <div class="svc-body"><h3>Monitora il mercato immobiliare locale</h3><p>Notizie locali, variazioni PRG, trend nazionali ogni settimana. Da girare ai tuoi clienti come valore aggiunto.</p></div>
-      <div class="svc-price"><span class="svc-price-free">€0 ora</span><span class="svc-price-after">poi su misura</span></div>
+    <a class="svc-card-l" href={FORM_URL}>
+      <span class="svc-card-l-cat">immobiliare</span>
+      <div class="svc-card-l-name">Monitora il mercato immobiliare locale</div>
+      <div class="svc-card-l-desc">Notizie locali, variazioni PRG, trend nazionali ogni settimana. Da girare ai tuoi clienti come valore aggiunto.</div>
+      <div class="svc-card-l-ft"><span class="svc-card-l-free">Gratis ora</span><span class="svc-card-l-after">poi 59–99€/mese</span></div>
     </a>
-    <a class="svc-row" href={FORM_URL}>
-      <span class="svc-cat">normativo</span>
-      <div class="svc-body"><h3>Resta aggiornato sulle normative affitti brevi</h3><p>CIN, cedolare secca, obblighi regionali, scadenze. In linguaggio semplice, senza legalese.</p></div>
-      <div class="svc-price"><span class="svc-price-free">€0 ora</span><span class="svc-price-after">poi su misura</span></div>
+    <a class="svc-card-l" href={FORM_URL}>
+      <span class="svc-card-l-cat">normativo</span>
+      <div class="svc-card-l-name">Resta aggiornato sulle normative affitti brevi</div>
+      <div class="svc-card-l-desc">CIN, cedolare secca, obblighi regionali, scadenze. In linguaggio semplice, senza legalese.</div>
+      <div class="svc-card-l-ft"><span class="svc-card-l-free">Gratis ora</span><span class="svc-card-l-after">poi 9–29€/mese</span></div>
     </a>
-    <a class="svc-row" href={FORM_URL}>
-      <span class="svc-cat">intelligence</span>
-      <div class="svc-body"><h3>Monitora i tuoi competitor senza cercarlo tu</h3><p>Brief giornaliero o settimanale su settore, competitor o brand. Fonti: news, RSS, comunicati.</p></div>
-      <div class="svc-price"><span class="svc-price-free">€0 ora</span><span class="svc-price-after">poi su misura</span></div>
+    <a class="svc-card-l" href={FORM_URL}>
+      <span class="svc-card-l-cat">intelligence</span>
+      <div class="svc-card-l-name">Monitora i tuoi competitor senza cercarlo tu</div>
+      <div class="svc-card-l-desc">Brief giornaliero o settimanale su settore, competitor o brand. Fonti: news, RSS, comunicati.</div>
+      <div class="svc-card-l-ft"><span class="svc-card-l-free">Gratis ora</span><span class="svc-card-l-after">poi 150–400€/mese</span></div>
     </a>
-    <a class="svc-row" href={FORM_URL}>
-      <span class="svc-cat">lead generation</span>
-      <div class="svc-body"><h3>Trova i lead giusti per il tuo prodotto</h3><p>Aziende italiane potenzialmente interessate a quello che vendi — cercate, classificate, consegnate.</p></div>
-      <div class="svc-price"><span class="svc-price-free">€0 ora</span><span class="svc-price-after">poi su misura</span></div>
+    <a class="svc-card-l" href={FORM_URL}>
+      <span class="svc-card-l-cat">lead gen</span>
+      <div class="svc-card-l-name">Trova i lead giusti per il tuo prodotto</div>
+      <div class="svc-card-l-desc">Aziende italiane potenzialmente interessate a quello che vendi — cercate, classificate, consegnate.</div>
+      <div class="svc-card-l-ft"><span class="svc-card-l-free">Gratis ora</span><span class="svc-card-l-after">poi 500–2.000€</span></div>
     </a>
-    <a class="svc-row" href={FORM_URL}>
-      <span class="svc-cat">su misura</span>
-      <div class="svc-body"><h3>Qualsiasi ricerca su misura — chiedimi</h3><p>Competitor in Germania, un mercato da analizzare, distributori in Francia — se è ricercabile, lo trovo.</p></div>
-      <div class="svc-price"><span class="svc-price-free">€0 ora</span><span class="svc-price-after">poi su misura</span></div>
+    <a class="svc-card-l" href={FORM_URL}>
+      <span class="svc-card-l-cat">su misura</span>
+      <div class="svc-card-l-name">Qualsiasi ricerca su misura — chiedimi</div>
+      <div class="svc-card-l-desc">Competitor in Germania, un mercato da analizzare, distributori in Francia — se è ricercabile, lo trovo.</div>
+      <div class="svc-card-l-ft"><span class="svc-card-l-free">Gratis ora</span><span class="svc-card-l-after">poi 200–1.500€</span></div>
     </a>
   </div>
   <a class="any-request" href={FORM_URL}>
@@ -404,18 +410,19 @@ import { FORM_URL, SLOTS } from '../config';
 .ld-ai{background:var(--acc)}.ld-jack{background:#22c55e}.ld-both{background:#ec4899}
 
 /* SERVIZI */
-.svc-list{border:0.5px solid var(--line);border-radius:12px;overflow:hidden}
-.svc-row{display:grid;grid-template-columns:110px 1fr auto;gap:20px;padding:18px 22px;border-bottom:0.5px solid var(--line);align-items:center;text-decoration:none;color:inherit;transition:background 0.15s}
-.svc-row:last-child{border-bottom:none}
-.svc-row:hover{background:var(--surf)}
-@media(max-width:620px){.svc-row{grid-template-columns:1fr;gap:6px}}
-.svc-cat{font-size:11px;font-weight:500;color:var(--acc);letter-spacing:0.3px}
-.svc-body h3{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:3px;line-height:1.3}
-.svc-body p{font-size:13px;color:var(--ink2);line-height:1.5}
-.svc-price{display:flex;flex-direction:column;gap:2px;align-items:flex-end;flex-shrink:0}
-.svc-price-free{font-size:14px;font-weight:600;color:var(--acc);white-space:nowrap}
-.svc-price-after{font-size:11px;color:var(--ink3);white-space:nowrap}
-@media(max-width:620px){.svc-price{align-items:flex-start}}
+.svc-grid-v{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:700px){.svc-grid-v{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:440px){.svc-grid-v{grid-template-columns:1fr}}
+.svc-card-l{background:#fff;border:0.5px solid var(--line);border-radius:12px;padding:20px 18px 16px;display:flex;flex-direction:column;gap:7px;text-decoration:none;color:inherit;transition:border-color 0.15s,box-shadow 0.15s,transform 0.15s}
+.svc-card-l:hover{border-color:var(--acc-border);box-shadow:0 4px 20px rgba(108,99,255,0.1);transform:translateY(-1px)}
+.svc-card-l.featured{background:var(--acc-bg);border-color:var(--acc-border)}
+.svc-card-l-cat{font-size:10px;font-weight:600;color:var(--acc);letter-spacing:0.5px;text-transform:uppercase}
+.svc-card-l-name{font-size:13px;font-weight:600;color:var(--ink);line-height:1.3;letter-spacing:-0.2px;flex:1}
+.svc-card-l.featured .svc-card-l-name{color:var(--acc)}
+.svc-card-l-desc{font-size:11px;color:var(--ink2);line-height:1.5}
+.svc-card-l-ft{display:flex;align-items:center;justify-content:space-between;margin-top:4px;padding-top:10px;border-top:0.5px solid var(--line)}
+.svc-card-l-free{font-size:11px;font-weight:600;color:#16a34a}
+.svc-card-l-after{font-size:10px;color:var(--ink3)}
 .any-request{display:flex;align-items:center;gap:12px;padding:14px 18px;border:0.5px solid var(--line);border-radius:10px;margin-top:10px;background:var(--surf);text-decoration:none;color:inherit;transition:border-color 0.1s}
 .any-request:hover{border-color:var(--acc)}
 .any-icon{color:var(--acc);flex-shrink:0}
@@ -600,7 +607,7 @@ loop();
   // Scroll groups: stagger children within each container
   const groups: [string, string, number][] = [
     ['.perchi-grid',    '.perchi-item', 80],
-    ['.svc-list',       '.svc-row',    60],
+    ['.svc-grid-v',     '.svc-card-l', 60],
     ['.steps-timeline', '.step-tl',    80],
     ['.rpt-grid',       '.rpt-card',   70],
     ['.metodo-steps',   '.ms',         55],
