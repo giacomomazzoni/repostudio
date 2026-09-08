@@ -791,6 +791,7 @@ loop();
     ['.steps-timeline', '.step-tl',    80],
     ['.rpt-grid',       '.rpt-card',   70],
     ['.metodo-steps',   '.ms',         55],
+    ['.risultato-points','.rp-item',   70],
   ];
   groups.forEach(([parent, child, gap]) => {
     document.querySelectorAll(parent).forEach(p =>
@@ -799,7 +800,7 @@ loop();
   });
 
   // Individual elements (no stagger)
-  ['.stats', '.sec-hd', '.honest', '.any-request', '.deliverable', '.rpt-intro'].forEach(sel =>
+  ['.stats', '.sec-hd', '.honest', '.any-request', '.deliverable', '.rpt-intro', '.risultato-intro', '.risultato-sub', '.doc-stack', '.risultato-cta'].forEach(sel =>
     document.querySelectorAll(sel).forEach(el => mark(el))
   );
 
