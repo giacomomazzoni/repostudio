@@ -247,9 +247,7 @@ import { FORM_URL, SLOTS } from '../config';
 .pt{height:2px;background:var(--line);border-radius:2px;overflow:hidden;margin-bottom:14px}
 .pb{height:100%;width:0%;border-radius:2px;background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width 0.3s ease}
 .sources{display:flex;gap:4px;flex-wrap:wrap}
-.chip{font-size:10px;padding:3px 10px;border:0.5px solid var(--line);border-radius:20px;color:var(--ink2);background:var(--surf);opacity:0;transform:translateY(3px);transition:opacity 0.22s,transform 0.22s}
-.chip.on{opacity:1;transform:translateY(0)}
-.chip.done{border-color:var(--acc-border);color:var(--acc);background:var(--acc-bg)}
+/* .chip rules moved to global.css (JS-created elements don't get scoped attr) */
 .result{display:none;border-top:0.5px solid var(--line);margin-top:14px;padding-top:14px}
 .result.show{display:flex;align-items:flex-start;gap:12px}
 .result-icon{width:32px;height:32px;border-radius:8px;background:var(--acc-bg);border:0.5px solid var(--acc-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--acc)}

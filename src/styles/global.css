@@ -67,5 +67,10 @@ body{font-family:var(--font);color:var(--ink);background:#fff;-webkit-font-smoot
 
 /* ── FOOTER (styles in Base.astro) ── */
 
+/* ── AI CHIPS (created via JS, must be global) ── */
+.chip{font-size:10px;padding:3px 10px;border:0.5px solid var(--line);border-radius:20px;color:var(--ink2);background:var(--surf);opacity:0;transform:translateY(3px);transition:opacity 0.22s,transform 0.22s}
+.chip.on{opacity:1;transform:translateY(0)}
+.chip.done{border-color:var(--acc-border);color:var(--acc);background:var(--acc-bg)}
+
 /* ── KEYFRAMES ── */
 @keyframes gp{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.35;transform:scale(0.65)}}
