@@ -5,8 +5,8 @@ const FORM_URL = 'YOUR_FORM_LINK_HERE';
 const SLOTS = 4;
 
 const {
-  title = 'RepoStudio — Ricerche AI per PMI e professionisti',
-  description = 'Dimmi cosa devi sapere. Ricevi un report professionale, pronto da usare. Gratis in beta.',
+  title = 'RepoStudio — Ricerche di mercato con AI',
+  description = 'Smetti di perdere ore a cercare informazioni. Te le trovo io, con l\'AI. Report professionale, pronto da usare.',
   canonical = 'https://repostudio.it',
   ogType = 'website',
 } = Astro.props;
@@ -23,75 +23,68 @@ const faviconDataUri = `data:image/svg+xml;base64,${Buffer.from(faviconSvg).toSt
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
-
-  <!-- Open Graph -->
   <meta property="og:type" content={ogType} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
   <meta property="og:site_name" content="RepoStudio" />
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-
   <link rel="icon" type="image/svg+xml" href={faviconDataUri} />
-
 </head>
 <body>
 
-<!-- TOP BANNER -->
 <div class="top-banner">
-  <span class="dot-green"></span>
-  <span>Beta aperta — <strong>{SLOTS} posti disponibili</strong> questa settimana</span>
-  <a href={FORM_URL} target="_blank" rel="noopener">Richiedi gratis →</a>
+  <span class="top-banner-dot"></span>
+  Beta aperta —&nbsp;<span class="top-banner-num" id="banner-num">{SLOTS}</span>&nbsp;posti disponibili questa settimana
+  <a href={FORM_URL}>Richiedi gratis →</a>
 </div>
 
-<!-- NAV -->
-<header class="nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <!-- Logo: 3 barre viola -->
-      <svg width="28" height="28" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect x="10" y="42" width="12" height="16" rx="6" fill="#6C63FF" opacity="0.4"/>
-        <rect x="26" y="30" width="12" height="28" rx="6" fill="#6C63FF" opacity="0.7"/>
-        <rect x="42" y="18" width="12" height="40" rx="6" fill="#6C63FF"/>
-      </svg>
-      <div class="nav-wordmark">
-        <strong>RepoStudio</strong>
-        <span>AI-POWERED RESEARCH</span>
-      </div>
-      <span class="nav-badge">BETA</span>
-    </a>
+<div class="page">
 
-    <nav aria-label="Navigazione principale">
-      <ul class="nav-links">
-        <li><a href="/#servizi">Servizi</a></li>
-        <li><a href="/#metodo">Metodo</a></li>
-        <li><a href="/report/">Report</a></li>
-        <li><a href="/#faq">FAQ</a></li>
-      </ul>
-    </nav>
-
-    <a href={FORM_URL} class="btn btn-primary nav-cta" target="_blank" rel="noopener">
-      Richiedi gratis →
-    </a>
+<nav class="nav">
+  <a class="logo" href="/">
+    <svg width="30" height="30" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+      <rect x="10" y="42" width="12" height="16" rx="6" fill="#6C63FF" opacity="0.4"/>
+      <rect x="26" y="30" width="12" height="28" rx="6" fill="#6C63FF" opacity="0.7"/>
+      <rect x="42" y="18" width="12" height="40" rx="6" fill="#6C63FF"/>
+    </svg>
+    <span style="display:flex;flex-direction:column;gap:1px">
+      <span style="font-size:14px;font-weight:600;letter-spacing:-0.4px;color:#0A0A12;line-height:1">RepoStudio</span>
+      <span style="font-size:8px;font-weight:500;letter-spacing:2px;color:#6C63FF;line-height:1">AI-POWERED RESEARCH</span>
+    </span>
+    <span class="logo-badge">BETA</span>
+  </a>
+  <div class="nav-links">
+    <a class="nav-link" href="/#servizi">Servizi</a>
+    <a class="nav-link" href="/#metodo">Metodo</a>
+    <a class="nav-link" href="/report/">Report</a>
+    <a class="nav-link" href="/#faq">FAQ</a>
   </div>
-</header>
+  <a class="nav-cta" href={FORM_URL}>Richiedi gratis →</a>
+</nav>
 
-<!-- MAIN CONTENT -->
-<main>
-  <slot />
-</main>
+<slot />
 
-<!-- FOOTER -->
-<footer class="footer-wrap">
-  <div class="footer">
-    <p>RepoStudio · Genova · 2026</p>
-    <p>by Jack Mazzoni</p>
-  </div>
+<footer class="foot">
+  <span>RepoStudio · Genova · 2026</span>
+  <span>by Jack Mazzoni</span>
 </footer>
+
+</div>
+
+<script define:vars={{ SLOTS }}>
+setTimeout(() => {
+  ['banner-num', 'inline-num'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = SLOTS;
+    el.classList.add('tick');
+    setTimeout(() => el.classList.remove('tick'), 300);
+  });
+}, 1200);
+</script>
 
 </body>
 </html>
