@@ -19,16 +19,15 @@ import { FORM_URL, SLOTS } from '../config';
       <h1>Smetti di perdere ore<br>a cercare informazioni.</h1>
       <div class="hero-sub-line"><span class="glow">Te le trovo io, con l'AI.</span></div>
 
-      <div class="jack-box">
-        <div class="jack-avatar">JM</div>
-        <div class="jack-text">
-          <strong>Sono Jack.</strong>
-          Uso l'AI per raccogliere e sintetizzare fonti pubbliche in minuti. Poi ci metto la testa io — per assicurarmi che il report sia davvero utile per te.
-        </div>
-      </div>
-
       <div class="hero-btns">
         <a class="btn-a" href={FORM_URL}>Fai la tua prima ricerca gratis</a>
+        <div class="jack-box">
+          <div class="jack-avatar">JM</div>
+          <div class="jack-text">
+            <strong>Sono Jack.</strong>
+            Uso l'AI per raccogliere e sintetizzare fonti pubbliche in minuti. Poi ci metto la testa io — per assicurarmi che il report sia davvero utile per te.
+          </div>
+        </div>
         <div class="scarcity">
           <span class="scarcity-dot"></span>
           <span class="scarcity-txt">Seguo poche ricerche a settimana per lavorare bene su ognuna. <b>Ho ancora <span id="inline-num">{SLOTS}</span> posti disponibili questa settimana.</b></span>
@@ -416,7 +415,7 @@ import { FORM_URL, SLOTS } from '../config';
 .glow{background:linear-gradient(95deg,var(--acc) 0%,var(--acc2) 55%,#a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-desc{font-size:15px;line-height:1.65;color:var(--ink2);margin-bottom:20px;max-width:440px}
 
-.jack-box{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border:0.5px solid var(--acc-border);background:var(--acc-bg);border-radius:10px;margin-bottom:28px}
+.jack-box{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border:0.5px solid var(--acc-border);background:var(--acc-bg);border-radius:10px}
 .jack-avatar{width:34px;height:34px;border-radius:50%;background:var(--acc);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#fff;flex-shrink:0}
 .jack-text{font-size:14px;color:var(--ink2);line-height:1.6}
 .jack-text strong{color:var(--ink);font-weight:500;display:block;margin-bottom:2px}
@@ -770,7 +769,6 @@ loop();
     document.querySelector('.hero-tag'),
     document.querySelector('.hero h1'),
     document.querySelector('.hero-sub-line'),
-    document.querySelector('.jack-box'),
     document.querySelector('.hero-btns'),
   ];
   const heroRight = document.querySelector('.hero-right');
