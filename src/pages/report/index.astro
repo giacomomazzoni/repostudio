@@ -1,7 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-
-const FORM_URL = 'YOUR_FORM_LINK_HERE';
+import { FORM_URL } from '../../config';
 
 const allReports = await Astro.glob('./*.md');
 
@@ -12,23 +11,22 @@ const reports = allReports
 
 <Base
   title="Report — RepoStudio"
-  description="Tutti i report pubblicati da RepoStudio: brief settimanali su mercati, normative, bandi e trend locali."
+  description="Brief settimanali su mercati, normative, bandi e trend locali. Fonti verificate, sintesi chiara, subito utilizzabile."
   canonical="https://repostudio.it/report/"
 >
 
-<div class="page-wrap">
-  <div class="page-header">
-    <div class="section-label">Report pubblicati</div>
+<div class="rp-wrap">
+
+  <div class="rp-header">
+    <div class="sec-hd">report pubblicati</div>
     <h1>Ricerche già pronte.</h1>
-    <p class="page-sub">Ogni brief è prodotto con lo stesso metodo delle ricerche su misura — fonti verificate, sintesi chiara, subito utilizzabile.</p>
+    <p class="rp-sub">Ogni brief è prodotto con lo stesso metodo delle ricerche su misura — fonti verificate, sintesi chiara, subito utilizzabile.</p>
   </div>
 
   {reports.length === 0 ? (
-    <div class="empty-state">
-      <p>Nessun report ancora pubblicato. Torna presto.</p>
-    </div>
+    <p class="rp-empty">Nessun report ancora pubblicato. Torna presto.</p>
   ) : (
-    <div class="reports-grid">
+    <div class="rp-grid">
       {reports.map((r) => {
         const { title, description, date, category, zona, slug } = r.frontmatter;
         const dateFormatted = new Date(date).toLocaleDateString('it-IT', {
@@ -37,16 +35,16 @@ const reports = allReports
           year: 'numeric',
         });
         return (
-          <a href={`/report/${slug}/`} class="report-card">
-            <div class="report-card-top">
-              <span class="cat-badge">{category}</span>
-              <span class="report-date">{dateFormatted}</span>
+          <a href={`/report/${slug}/`} class="rp-card">
+            <div class="rp-card-top">
+              <span class="rp-cat">{category}</span>
+              <span class="rp-date">{dateFormatted}</span>
             </div>
             <h2>{title}</h2>
             <p>{description}</p>
-            <div class="report-card-bottom">
-              <span class="report-zona">{zona}</span>
-              <span class="report-arrow">→</span>
+            <div class="rp-card-foot">
+              <span class="rp-zona">{zona}</span>
+              <span class="rp-arr">→</span>
             </div>
           </a>
         );
@@ -54,151 +52,50 @@ const reports = allReports
     </div>
   )}
 
-  <div class="cta-banner">
-    <span>Non trovi la ricerca che ti serve?</span>
-    <a href={FORM_URL} target="_blank" rel="noopener">Richiedila su misura →</a>
-  </div>
+  <a class="any-request" href={FORM_URL} target="_blank" rel="noopener">
+    <span class="any-icon">
+      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    </span>
+    <div class="any-text"><b>Non trovi la ricerca che ti serve?</b>Richiedila su misura — probabilmente la faccio.</div>
+    <span class="any-arr-right">→</span>
+  </a>
+
 </div>
 
 </Base>
 
 <style>
-  .page-wrap {
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: 60px 24px 80px;
-  }
+.rp-wrap{padding:48px 0 72px}
 
-  .page-header {
-    margin-bottom: 48px;
-    max-width: 600px;
-  }
+.rp-header{margin-bottom:40px;max-width:560px}
+.rp-header h1{font-size:clamp(28px,4vw,40px);font-weight:500;letter-spacing:-1.5px;line-height:1.05;margin-bottom:12px;margin-top:20px}
+.rp-sub{font-size:14px;color:var(--ink2);line-height:1.65}
 
-  .page-header h1 {
-    font-size: clamp(28px, 5vw, 44px);
-    font-weight: 800;
-    letter-spacing: -1px;
-    margin-bottom: 14px;
-    margin-top: 10px;
-  }
+.rp-empty{text-align:center;padding:60px 0;font-size:14px;color:var(--ink3)}
 
-  .page-sub {
-    font-size: 16px;
-    color: var(--ink2);
-    line-height: 1.65;
-  }
+.rp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:10px}
+@media(max-width:640px){.rp-grid{grid-template-columns:1fr}}
 
-  .reports-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-bottom: 32px;
-  }
+.rp-card{border:0.5px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:8px;text-decoration:none;transition:border-color 0.1s}
+.rp-card:hover{border-color:var(--acc)}
 
-  @media (max-width: 640px) {
-    .reports-grid {
-      grid-template-columns: 1fr;
-    }
-  }
+.rp-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.rp-cat{font-size:10px;font-weight:500;color:var(--acc);background:var(--acc-bg);border:0.5px solid var(--acc-border);padding:2px 8px;border-radius:3px}
+.rp-date{font-size:11px;color:var(--ink3)}
 
-  .report-card {
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    text-decoration: none;
-    transition: border-color 0.15s, box-shadow 0.15s;
-  }
+.rp-card h2{font-size:15px;font-weight:500;letter-spacing:-0.3px;line-height:1.3;color:var(--ink)}
+.rp-card p{font-size:12px;line-height:1.6;color:var(--ink2);flex:1}
 
-  .report-card:hover {
-    border-color: var(--acc-border);
-    box-shadow: 0 2px 16px rgba(108,99,255,0.08);
-  }
+.rp-card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:4px}
+.rp-zona{font-size:11px;color:var(--ink3)}
+.rp-arr{color:var(--acc);font-size:14px}
 
-  .report-card-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-  }
-
-  .cat-badge {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--acc);
-    background: var(--acc-bg);
-    border: 1px solid var(--acc-border);
-    padding: 2px 9px;
-    border-radius: 20px;
-  }
-
-  .report-date {
-    font-size: 12px;
-    color: var(--ink3);
-  }
-
-  .report-card h2 {
-    font-size: 17px;
-    font-weight: 600;
-    letter-spacing: -0.3px;
-    line-height: 1.3;
-    color: var(--ink1);
-  }
-
-  .report-card p {
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--ink2);
-    flex: 1;
-  }
-
-  .report-card-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 8px;
-  }
-
-  .report-zona {
-    font-size: 12px;
-    color: var(--ink3);
-  }
-
-  .report-arrow {
-    color: var(--acc);
-    font-size: 16px;
-  }
-
-  .empty-state {
-    text-align: center;
-    padding: 60px 24px;
-    color: var(--ink3);
-    font-size: 15px;
-  }
-
-  .cta-banner {
-    background: var(--acc);
-    color: #fff;
-    border-radius: 14px;
-    padding: 28px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-    font-size: 15px;
-    font-weight: 500;
-  }
-
-  .cta-banner a {
-    color: #fff;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    font-weight: 700;
-    white-space: nowrap;
-  }
+/* reuse from index.astro */
+.any-request{display:flex;align-items:center;gap:12px;padding:14px 18px;border:0.5px solid var(--line);border-radius:10px;background:var(--surf);text-decoration:none;color:inherit;transition:border-color 0.1s}
+.any-request:hover{border-color:var(--acc)}
+.any-icon{color:var(--acc);flex-shrink:0}
+.any-icon svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.any-text{font-size:13px;color:var(--ink2);line-height:1.5}
+.any-text b{color:var(--ink);font-weight:500;display:block;margin-bottom:1px}
+.any-arr-right{font-size:14px;color:var(--ink3);margin-left:auto}
 </style>

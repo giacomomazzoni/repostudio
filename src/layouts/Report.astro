@@ -1,7 +1,6 @@
 ---
 import Base from './Base.astro';
-
-const FORM_URL = 'YOUR_FORM_LINK_HERE';
+import { FORM_URL } from '../config';
 
 const {
   title,
@@ -26,322 +25,119 @@ const dateFormatted = new Date(date).toLocaleDateString('it-IT', {
   canonical={`https://repostudio.it/report/${slug}/`}
   ogType="article"
 >
-  <div class="report-wrap">
+  <div class="r-wrap">
 
     <!-- BREADCRUMB -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
+    <nav class="r-breadcrumb" aria-label="Breadcrumb">
       <a href="/">RepoStudio</a>
-      <span aria-hidden="true">›</span>
+      <span>›</span>
       <a href="/report/">Report</a>
-      <span aria-hidden="true">›</span>
+      <span>›</span>
       <span>{category}</span>
     </nav>
 
     <!-- HEADER -->
-    <header class="report-header">
-      <span class="cat-badge">{category}</span>
+    <header class="r-header">
+      <span class="r-cat">{category}</span>
       <h1>{title}</h1>
-      <div class="meta-row">
+      <div class="r-meta">
         <span>{dateFormatted}</span>
-        <span class="meta-sep">·</span>
+        <span class="r-dot">·</span>
         <span>{zona}</span>
-        <span class="meta-sep">·</span>
+        <span class="r-dot">·</span>
         <span>Preparato da RepoStudio</span>
       </div>
     </header>
 
     <!-- KEY NUMBERS -->
     {keyNumbers.length > 0 && (
-      <div class="key-numbers">
+      <div class="r-nums">
         {keyNumbers.map((k: { num: string; label: string }) => (
-          <div class="key-num-card">
-            <div class="key-num-value">{k.num}</div>
-            <div class="key-num-label">{k.label}</div>
+          <div class="r-num-card">
+            <div class="r-num-val">{k.num}</div>
+            <div class="r-num-lbl">{k.label}</div>
           </div>
         ))}
       </div>
     )}
 
     <!-- BODY -->
-    <article class="report-body">
+    <article class="r-body">
       <slot />
 
-      <!-- CTA INLINE (mid-page) -->
-      <div class="cta-inline">
+      <!-- CTA INLINE -->
+      <div class="r-cta-inline">
         <p>Vuoi un report personalizzato sulla tua zona o settore?</p>
-        <a href={FORM_URL} class="btn btn-primary" target="_blank" rel="noopener">
-          Fai la tua prima ricerca gratis →
-        </a>
+        <a href={FORM_URL} target="_blank" rel="noopener">Fai la tua prima ricerca gratis →</a>
       </div>
     </article>
 
   </div>
 
-  <!-- CTA FOOTER VIOLA -->
-  <div class="cta-footer-dark">
-    <div class="cta-footer-inner">
+  <!-- CTA FOOTER -->
+  <div class="r-cta-foot">
+    <div class="r-cta-foot-inner">
       <h2>Vuoi un report come questo ogni lunedì?</h2>
       <p>Dimmi su cosa vuoi restare aggiornato. Ci penso io, ogni settimana.</p>
-      <a href={FORM_URL} class="btn btn-white" target="_blank" rel="noopener">
-        Inizia gratis →
-      </a>
+      <a href={FORM_URL} class="r-cta-foot-btn" target="_blank" rel="noopener">Inizia gratis →</a>
     </div>
   </div>
 </Base>
 
 <style>
-  .report-wrap {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 40px 24px 0;
-  }
+/* LAYOUT */
+.r-wrap{max-width:720px;margin:0 auto;padding:40px 32px 0}
+@media(max-width:640px){.r-wrap{padding:32px 20px 0}}
 
-  .breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--ink3);
-    margin-bottom: 28px;
-  }
+/* BREADCRUMB */
+.r-breadcrumb{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink3);margin-bottom:28px}
+.r-breadcrumb a{color:var(--ink3);text-decoration:none;transition:color 0.15s}
+.r-breadcrumb a:hover{color:var(--acc)}
 
-  .breadcrumb a {
-    color: var(--ink3);
-    transition: color 0.15s;
-  }
+/* HEADER */
+.r-header{margin-bottom:28px}
+.r-cat{display:inline-block;font-size:10px;font-weight:500;color:var(--acc);background:var(--acc-bg);border:0.5px solid var(--acc-border);padding:2px 9px;border-radius:3px;margin-bottom:12px}
+.r-header h1{font-size:clamp(20px,3.5vw,28px);font-weight:500;letter-spacing:-0.8px;line-height:1.2;margin-bottom:12px}
+.r-meta{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink3);flex-wrap:wrap}
+.r-dot{opacity:0.4}
 
-  .breadcrumb a:hover {
-    color: var(--acc);
-  }
+/* KEY NUMBERS */
+.r-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:32px;padding-bottom:32px;border-bottom:0.5px solid var(--line)}
+@media(max-width:500px){.r-nums{grid-template-columns:1fr}}
+.r-num-card{background:var(--surf);border:0.5px solid var(--line);border-radius:8px;padding:16px}
+.r-num-val{font-size:26px;font-weight:500;letter-spacing:-1px;color:var(--acc);line-height:1;margin-bottom:5px}
+.r-num-lbl{font-size:11px;color:var(--ink2);line-height:1.4}
 
-  .report-header {
-    margin-bottom: 32px;
-  }
+/* BODY TYPOGRAPHY */
+.r-body :global(h2){font-size:20px;font-weight:500;letter-spacing:-0.4px;margin:36px 0 10px;line-height:1.2}
+.r-body :global(h3){font-size:15px;font-weight:500;margin:24px 0 7px}
+.r-body :global(p){font-size:14px;line-height:1.75;color:var(--ink2);margin-bottom:14px}
+.r-body :global(ul),.r-body :global(ol){padding-left:20px;margin-bottom:14px}
+.r-body :global(li){font-size:14px;line-height:1.7;color:var(--ink2);margin-bottom:5px}
+.r-body :global(strong){color:var(--ink);font-weight:500}
 
-  .cat-badge {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--acc);
-    background: var(--acc-bg);
-    border: 1px solid var(--acc-border);
-    padding: 3px 10px;
-    border-radius: 20px;
-    margin-bottom: 12px;
-  }
+/* TABLES */
+.r-body :global(table){width:100%;border-collapse:collapse;font-size:13px;margin:20px 0;overflow-x:auto;display:block}
+.r-body :global(thead tr){background:var(--ink);color:#fff}
+.r-body :global(th){padding:9px 13px;text-align:left;font-weight:500;font-size:11px;letter-spacing:0.04em}
+.r-body :global(td){padding:8px 13px;border-bottom:0.5px solid var(--line);color:var(--ink2)}
+.r-body :global(tbody tr:nth-child(even)){background:var(--surf)}
 
-  .report-header h1 {
-    font-size: clamp(22px, 4vw, 32px);
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    line-height: 1.25;
-    margin-bottom: 14px;
-  }
+/* CALLOUTS */
+.r-body :global(.callout-warn){background:#FFFBEB;border-left:2px solid #F59E0B;color:#92400E;padding:12px 14px;border-radius:6px;margin:18px 0;font-size:13px;line-height:1.6}
+.r-body :global(.callout-info){background:var(--acc-bg);border-left:2px solid var(--acc-border);color:var(--ink);padding:12px 14px;border-radius:6px;margin:18px 0;font-size:13px;line-height:1.6}
 
-  .meta-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--ink3);
-    flex-wrap: wrap;
-  }
+/* CTA INLINE */
+.r-cta-inline{border:0.5px solid var(--acc-border);background:var(--acc-bg);border-radius:10px;padding:22px 20px;margin:40px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.r-cta-inline p{font-size:14px;font-weight:500;color:var(--ink);margin:0}
+.r-cta-inline a{background:var(--acc);color:#fff;font-size:13px;font-weight:500;padding:10px 18px;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.r-cta-inline a:hover{opacity:0.88}
 
-  .meta-sep {
-    opacity: 0.5;
-  }
-
-  /* KEY NUMBERS */
-  .key-numbers {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 40px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid var(--line);
-  }
-
-  @media (max-width: 600px) {
-    .key-numbers {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .key-num-card {
-    background: var(--surface);
-    border-radius: 10px;
-    padding: 18px 16px;
-  }
-
-  .key-num-value {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: -1px;
-    color: var(--acc);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-
-  .key-num-label {
-    font-size: 12px;
-    color: var(--ink2);
-    line-height: 1.4;
-  }
-
-  /* BODY TYPOGRAPHY */
-  .report-body :global(h2) {
-    font-size: 22px;
-    font-weight: 500;
-    letter-spacing: -0.5px;
-    margin: 40px 0 12px;
-  }
-
-  .report-body :global(h3) {
-    font-size: 16px;
-    font-weight: 500;
-    margin: 28px 0 8px;
-  }
-
-  .report-body :global(p) {
-    font-size: 15px;
-    line-height: 1.75;
-    color: var(--ink2);
-    margin-bottom: 16px;
-  }
-
-  .report-body :global(ul),
-  .report-body :global(ol) {
-    padding-left: 24px;
-    margin-bottom: 16px;
-  }
-
-  .report-body :global(li) {
-    font-size: 15px;
-    line-height: 1.75;
-    color: var(--ink2);
-    margin-bottom: 6px;
-  }
-
-  .report-body :global(strong) {
-    color: var(--ink1);
-    font-weight: 600;
-  }
-
-  .report-body :global(table) {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-    margin: 24px 0;
-    overflow-x: auto;
-    display: block;
-  }
-
-  .report-body :global(thead tr) {
-    background: var(--ink1);
-    color: #fff;
-  }
-
-  .report-body :global(th) {
-    padding: 10px 14px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing: 0.04em;
-  }
-
-  .report-body :global(td) {
-    padding: 9px 14px;
-    border-bottom: 1px solid var(--line);
-    color: var(--ink2);
-  }
-
-  .report-body :global(tbody tr:nth-child(even)) {
-    background: var(--surface);
-  }
-
-  .report-body :global(.callout-warn) {
-    background: #FFFBEB;
-    border-left: 3px solid #F59E0B;
-    color: #92400E;
-    padding: 14px 16px;
-    border-radius: 6px;
-    margin: 20px 0;
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  .report-body :global(.callout-info) {
-    background: var(--acc-bg);
-    border-left: 3px solid var(--acc-border);
-    color: var(--ink1);
-    padding: 14px 16px;
-    border-radius: 6px;
-    margin: 20px 0;
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  /* CTA INLINE */
-  .cta-inline {
-    background: var(--acc-bg);
-    border: 1px solid var(--acc-border);
-    border-radius: 12px;
-    padding: 28px 24px;
-    margin: 48px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .cta-inline p {
-    font-size: 15px;
-    color: var(--ink1) !important;
-    font-weight: 500;
-    margin: 0 !important;
-  }
-
-  /* CTA FOOTER DARK */
-  .cta-footer-dark {
-    background: var(--acc);
-    margin-top: 60px;
-  }
-
-  .cta-footer-inner {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 60px 24px;
-    text-align: center;
-  }
-
-  .cta-footer-inner h2 {
-    font-size: clamp(22px, 3vw, 30px);
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 12px;
-  }
-
-  .cta-footer-inner p {
-    font-size: 16px;
-    color: rgba(255,255,255,0.8);
-    margin-bottom: 28px;
-  }
-
-  .btn-white {
-    background: #fff;
-    color: var(--acc);
-    font-weight: 700;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 15px;
-    display: inline-block;
-    transition: opacity 0.15s;
-  }
-
-  .btn-white:hover {
-    opacity: 0.9;
-  }
+/* CTA FOOTER */
+.r-cta-foot{background:var(--acc);margin-top:56px}
+.r-cta-foot-inner{max-width:720px;margin:0 auto;padding:56px 32px;text-align:center}
+.r-cta-foot-inner h2{font-size:clamp(20px,3vw,26px);font-weight:500;color:#fff;margin-bottom:10px;letter-spacing:-0.5px}
+.r-cta-foot-inner p{font-size:15px;color:rgba(255,255,255,0.75);margin-bottom:24px}
+.r-cta-foot-btn{display:inline-block;background:#fff;color:var(--acc);font-size:14px;font-weight:500;padding:12px 22px;border-radius:8px;text-decoration:none;transition:opacity 0.15s}
+.r-cta-foot-btn:hover{opacity:0.9}
 </style>
