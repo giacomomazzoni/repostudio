@@ -116,12 +116,12 @@ import { FORM_URL, SLOTS } from '../config';
 <section class="sec" id="servizi">
   <div class="sec-hd">cosa posso cercare</div>
   <div class="svc-grid">
-    <a class="svc svc-featured" href={FORM_URL}><div class="svc-top"><span class="svc-cat">monitoraggio</span><span>↗</span></div><h3>Trova i bandi giusti per la tua impresa</h3><p>PNRR, bandi europei e regionali filtrati per il tuo settore, con scadenze e requisiti sintetizzati.</p><div class="svc-ft"><span class="svc-free">Gratis adesso</span></div></a>
-    <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">monitoraggio</span><span>↗</span></div><h3>Monitora il mercato immobiliare locale</h3><p>Notizie locali, variazioni PRG, trend nazionali ogni settimana. Da girare ai tuoi clienti come valore aggiunto.</p><div class="svc-ft"><span class="svc-free">Gratis adesso</span></div></a>
-    <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">normativo</span><span>↗</span></div><h3>Resta aggiornato sulle normative affitti brevi</h3><p>CIN, cedolare secca, obblighi regionali, scadenze. In linguaggio semplice, senza legalese.</p><div class="svc-ft"><span class="svc-free">Gratis adesso</span></div></a>
-    <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">intelligence</span><span>↗</span></div><h3>Monitora i tuoi competitor senza cercarlo tu</h3><p>Brief giornaliero o settimanale su settore, competitor o brand. Fonti: news, RSS, comunicati.</p><div class="svc-ft"><span class="svc-free">Gratis adesso</span></div></a>
-    <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">lead generation</span><span>↗</span></div><h3>Trova i lead giusti per il tuo prodotto</h3><p>Aziende italiane potenzialmente interessate a quello che vendi — cercate, classificate, consegnate.</p><div class="svc-ft"><span class="svc-free">Gratis adesso</span></div></a>
-    <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">su misura</span><span>↗</span></div><h3>Qualsiasi ricerca su misura — chiedimi</h3><p>Competitor in Germania, un mercato da analizzare, distributori in Francia — se è ricercabile, lo trovo.</p><div class="svc-ft"><span class="svc-free">Gratis adesso</span></div></a>
+    <a class="svc svc-featured" href={FORM_URL}><div class="svc-top"><span class="svc-cat">monitoraggio</span><span>↗</span></div><h3>Trova i bandi giusti per la tua impresa</h3><p>PNRR, bandi europei e regionali filtrati per il tuo settore, con scadenze e requisiti sintetizzati.</p></a>
+    <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">monitoraggio</span><span>↗</span></div><h3>Monitora il mercato immobiliare locale</h3><p>Notizie locali, variazioni PRG, trend nazionali ogni settimana. Da girare ai tuoi clienti come valore aggiunto.</p></a>
+    <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">normativo</span><span>↗</span></div><h3>Resta aggiornato sulle normative affitti brevi</h3><p>CIN, cedolare secca, obblighi regionali, scadenze. In linguaggio semplice, senza legalese.</p></a>
+    <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">intelligence</span><span>↗</span></div><h3>Monitora i tuoi competitor senza cercarlo tu</h3><p>Brief giornaliero o settimanale su settore, competitor o brand. Fonti: news, RSS, comunicati.</p></a>
+    <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">lead generation</span><span>↗</span></div><h3>Trova i lead giusti per il tuo prodotto</h3><p>Aziende italiane potenzialmente interessate a quello che vendi — cercate, classificate, consegnate.</p></a>
+    <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">su misura</span><span>↗</span></div><h3>Qualsiasi ricerca su misura — chiedimi</h3><p>Competitor in Germania, un mercato da analizzare, distributori in Francia — se è ricercabile, lo trovo.</p></a>
   </div>
   <a class="any-request" href={FORM_URL}>
     <span class="any-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
@@ -364,8 +364,6 @@ import { FORM_URL, SLOTS } from '../config';
 .svc-cat{font-size:10px;font-weight:500;color:var(--acc)}
 .svc h3{font-size:14px;font-weight:500;margin-bottom:5px;line-height:1.3;color:var(--ink)}
 .svc p{font-size:14px;color:var(--ink2);line-height:1.5}
-.svc-ft{margin-top:12px;padding-top:10px;border-top:0.5px solid var(--line);display:flex;flex-direction:column;gap:2px}
-.svc-free{font-size:11px;font-weight:500;color:var(--acc)}
 .any-request{display:flex;align-items:center;gap:12px;padding:14px 18px;border:0.5px solid var(--line);border-radius:10px;margin-top:10px;background:var(--surf);text-decoration:none;color:inherit;transition:border-color 0.1s}
 .any-request:hover{border-color:var(--acc)}
 .any-icon{color:var(--acc);flex-shrink:0}
