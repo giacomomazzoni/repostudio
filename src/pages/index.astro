@@ -370,6 +370,11 @@ import { FORM_URL, SLOTS } from '../config';
 .honest-cta{display:inline-block;margin-top:20px;background:var(--acc);color:#fff;padding:12px 22px;border-radius:9px;font-size:14px;font-weight:500;text-decoration:none}
 .honest-cta:hover{opacity:0.88}
 
+/* ANIMATIONS */
+.will-anim{opacity:0;transform:translateY(18px);transition:opacity 0.55s cubic-bezier(0.22,1,0.36,1),transform 0.55s cubic-bezier(0.22,1,0.36,1);transition-delay:var(--ad,0ms)}
+.will-anim.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.will-anim{opacity:1;transform:none;transition:none}}
+
 /* CTA */
 .cta{padding:72px calc(32px + max(0px,(100vw - var(--w)) / 2)) 80px;margin:0 calc(-32px - max(0px,(100vw - var(--w)) / 2));background:var(--acc);text-align:center}
 @media(max-width:768px){.cta{margin:0 calc(-20px - max(0px,(100vw - var(--w)) / 2));padding:60px calc(20px + max(0px,(100vw - var(--w)) / 2)) calc(90px + env(safe-area-inset-bottom, 0px))}}
@@ -464,4 +469,61 @@ async function loop() {
 }
 
 loop();
+</script>
+
+<script>
+// Scroll + hero entrance animations
+(function () {
+  function mark(el: Element, delay = 0) {
+    el.classList.add('will-anim');
+    if (delay) (el as HTMLElement).style.setProperty('--ad', delay + 'ms');
+  }
+
+  // Hero: staggered on load
+  const heroSeq: (Element | null)[] = [
+    document.querySelector('.hero-tag'),
+    document.querySelector('.hero h1'),
+    document.querySelector('.hero-sub-line'),
+    document.querySelector('.jack-box'),
+    document.querySelector('.hero-btns'),
+  ];
+  const heroRight = document.querySelector('.hero-right');
+  heroSeq.forEach((el, i) => {
+    if (!el) return;
+    mark(el);
+    setTimeout(() => el.classList.add('in'), 50 + i * 85);
+  });
+  if (heroRight) {
+    mark(heroRight);
+    setTimeout(() => heroRight.classList.add('in'), 180);
+  }
+
+  // Scroll groups: stagger children within each container
+  const groups: [string, string, number][] = [
+    ['.perchi-grid', '.perchi-card', 80],
+    ['.svc-grid',    '.svc',         60],
+    ['.steps',       '.step',        80],
+    ['.metodo-steps','.ms',          55],
+    ['.faq',         '.faq-item',    45],
+  ];
+  groups.forEach(([parent, child, gap]) => {
+    document.querySelectorAll(parent).forEach(p =>
+      p.querySelectorAll(child).forEach((el, i) => mark(el, i * gap))
+    );
+  });
+
+  // Individual elements (no stagger)
+  ['.stats', '.sec-hd', '.honest', '.any-request', '.deliverable'].forEach(sel =>
+    document.querySelectorAll(sel).forEach(el => mark(el))
+  );
+
+  // Observe scroll elements
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.will-anim:not(.in)').forEach(el => io.observe(el));
+})();
 </script>
