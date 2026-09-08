@@ -134,7 +134,8 @@ const dateFormatted = new Date(date).toLocaleDateString('it-IT', {
 .r-cta-inline a:hover{opacity:0.88}
 
 /* CTA FOOTER */
-.r-cta-foot{background:var(--acc);margin-top:56px}
+.r-cta-foot{background:var(--acc);margin:56px calc(-32px - max(0px,(100vw - var(--w)) / 2)) 0}
+@media(max-width:768px){.r-cta-foot{margin:56px calc(-20px - max(0px,(100vw - var(--w)) / 2)) 0}}
 .r-cta-foot-inner{max-width:720px;margin:0 auto;padding:56px 32px;text-align:center}
 .r-cta-foot-inner h2{font-size:clamp(20px,3vw,26px);font-weight:500;color:#fff;margin-bottom:10px;letter-spacing:-0.5px}
 .r-cta-foot-inner p{font-size:15px;color:rgba(255,255,255,0.75);margin-bottom:24px}

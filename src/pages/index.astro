@@ -404,7 +404,8 @@ import { FORM_URL, SLOTS } from '../config';
 
 <style>
 /* HERO */
-.hero{padding:72px 0 64px;border-bottom:0.5px solid var(--line)}
+.hero{padding:72px calc(32px + max(0px,(100vw - var(--w)) / 2)) 64px;margin:0 calc(-32px - max(0px,(100vw - var(--w)) / 2));border-bottom:0.5px solid var(--line)}
+@media(max-width:768px){.hero{padding:72px calc(20px + max(0px,(100vw - var(--w)) / 2)) 64px;margin:0 calc(-20px - max(0px,(100vw - var(--w)) / 2))}}
 .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
 @media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:48px}}
 
@@ -473,9 +474,9 @@ import { FORM_URL, SLOTS } from '../config';
 .st-l{font-size:10px;color:var(--ink3);margin-top:3px}
 
 /* SECTIONS */
-.sec{padding:56px 0;border-bottom:0.5px solid var(--line)}
-.sec-surf{background:var(--surf);margin:0 calc(-32px - max(0px,(100vw - var(--w)) / 2));padding:56px calc(32px + max(0px,(100vw - var(--w)) / 2))}
-@media(max-width:768px){.sec-surf{margin:0 calc(-20px - max(0px,(100vw - var(--w)) / 2));padding:56px calc(20px + max(0px,(100vw - var(--w)) / 2))}}
+.sec{padding:56px calc(32px + max(0px,(100vw - var(--w)) / 2));margin:0 calc(-32px - max(0px,(100vw - var(--w)) / 2));border-bottom:0.5px solid var(--line)}
+@media(max-width:768px){.sec{padding:56px calc(20px + max(0px,(100vw - var(--w)) / 2));margin:0 calc(-20px - max(0px,(100vw - var(--w)) / 2))}}
+.sec-surf{background:var(--surf)}
 .sec-hd{font-size:13px;font-weight:700;color:var(--ink);letter-spacing:2px;text-transform:uppercase;margin-bottom:36px;display:flex;align-items:center;gap:16px}
 .sec-hd::after{content:'';flex:1;height:0.5px;background:var(--line)}
 
