@@ -18,7 +18,6 @@ import { FORM_URL, SLOTS } from '../config';
       <div class="hero-tag"><span class="tag-dot"></span> Beta aperta — ora gratuita</div>
       <h1>Smetti di perdere ore<br>a cercare informazioni.</h1>
       <div class="hero-sub-line"><span class="glow">Te le trovo io, con l'AI.</span></div>
-      <p class="hero-desc">Dimmi cosa devi sapere. Ricevi un report professionale, pronto da usare.</p>
 
       <div class="jack-box">
         <div class="jack-avatar">JM</div>
@@ -117,7 +116,7 @@ import { FORM_URL, SLOTS } from '../config';
 <section class="sec" id="servizi">
   <div class="sec-hd">cosa posso cercare</div>
   <div class="svc-grid">
-    <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">monitoraggio</span><span>↗</span></div><h3>Trova i bandi giusti per la tua impresa</h3><p>PNRR, bandi europei e regionali filtrati per il tuo settore, con scadenze e requisiti sintetizzati.</p><div class="svc-ft"><span class="svc-free">Gratis adesso</span><span class="svc-paid">poi 80–200€/mese</span></div></a>
+    <a class="svc svc-featured" href={FORM_URL}><div class="svc-top"><span class="svc-cat">monitoraggio</span><span>↗</span></div><h3>Trova i bandi giusti per la tua impresa</h3><p>PNRR, bandi europei e regionali filtrati per il tuo settore, con scadenze e requisiti sintetizzati.</p><div class="svc-ft"><span class="svc-free">Gratis adesso</span><span class="svc-paid">poi 80–200€/mese</span></div></a>
     <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">monitoraggio</span><span>↗</span></div><h3>Monitora il mercato immobiliare locale</h3><p>Notizie locali, variazioni PRG, trend nazionali ogni settimana. Da girare ai tuoi clienti come valore aggiunto.</p><div class="svc-ft"><span class="svc-free">Gratis adesso</span><span class="svc-paid">poi 59–99€/mese</span></div></a>
     <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">normativo</span><span>↗</span></div><h3>Resta aggiornato sulle normative affitti brevi</h3><p>CIN, cedolare secca, obblighi regionali, scadenze. In linguaggio semplice, senza legalese.</p><div class="svc-ft"><span class="svc-free">Gratis adesso</span><span class="svc-paid">poi 9–29€/mese</span></div></a>
     <a class="svc" href={FORM_URL}><div class="svc-top"><span class="svc-cat">intelligence</span><span>↗</span></div><h3>Monitora i tuoi competitor senza cercarlo tu</h3><p>Brief giornaliero o settimanale su settore, competitor o brand. Fonti: news, RSS, comunicati.</p><div class="svc-ft"><span class="svc-free">Gratis adesso</span><span class="svc-paid">poi 150–400€/mese</span></div></a>
@@ -210,10 +209,10 @@ import { FORM_URL, SLOTS } from '../config';
 
 .hero-tag{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:500;color:var(--ink2);border:0.5px solid var(--line);background:var(--surf);padding:5px 12px;border-radius:20px;margin-bottom:24px}
 .tag-dot{width:6px;height:6px;background:#22c55e;border-radius:50%;flex-shrink:0;animation:gp 2s ease-in-out infinite}
-.hero h1{font-size:clamp(40px,4.5vw,62px);font-weight:500;line-height:1.0;letter-spacing:-2.5px;margin-bottom:8px}
-.hero-sub-line{font-size:clamp(40px,4.5vw,62px);font-weight:500;line-height:1.0;letter-spacing:-2.5px;margin-bottom:24px}
+.hero h1{font-size:clamp(40px,4.5vw,62px);font-weight:600;line-height:1.0;letter-spacing:-2.5px;margin-bottom:8px}
+.hero-sub-line{font-size:clamp(32px,3.5vw,48px);font-weight:600;line-height:1.0;letter-spacing:-1.5px;margin-bottom:24px}
 .glow{background:linear-gradient(95deg,var(--acc) 0%,var(--acc2) 55%,#a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-desc{font-size:16px;line-height:1.65;color:var(--ink2);margin-bottom:20px;max-width:440px}
+.hero-desc{font-size:15px;line-height:1.65;color:var(--ink2);margin-bottom:20px;max-width:440px}
 
 .jack-box{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border:0.5px solid var(--acc-border);background:var(--acc-bg);border-radius:10px;margin-bottom:28px}
 .jack-avatar{width:34px;height:34px;border-radius:50%;background:var(--acc);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#fff;flex-shrink:0}
@@ -225,7 +224,7 @@ import { FORM_URL, SLOTS } from '../config';
 .btn-a:hover{opacity:0.88}
 .scarcity{display:flex;align-items:flex-start;gap:8px;padding:10px 13px;background:var(--surf);border:0.5px solid var(--line);border-radius:8px}
 .scarcity-dot{width:6px;height:6px;background:#22c55e;border-radius:50%;flex-shrink:0;margin-top:4px;animation:gp 2s ease-in-out infinite}
-.scarcity-txt{font-size:12px;color:var(--ink2);line-height:1.5}
+.scarcity-txt{font-size:13px;color:var(--ink2);line-height:1.5}
 .scarcity-txt b{color:var(--ink);font-weight:500}
 .btn-micro{font-size:11px;color:var(--ink3);line-height:1.6}
 .btn-b{color:var(--ink3);font-size:13px;text-decoration:underline;text-underline-offset:3px;display:inline-block}
@@ -267,10 +266,10 @@ import { FORM_URL, SLOTS } from '../config';
 .dlv-label{font-size:10px;color:var(--ink2);line-height:1.4}
 
 /* STATS */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border:0.5px solid var(--line);border-radius:12px;overflow:hidden;margin-top:48px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:0.5px solid var(--line);border-top:0.5px solid var(--line);border-radius:12px;overflow:hidden;margin-top:0}
 .st{padding:20px 0;text-align:center;border-right:0.5px solid var(--line)}
 .st:last-child{border-right:none}
-.st-n{font-size:28px;font-weight:500;letter-spacing:-1px}
+.st-n{font-size:22px;font-weight:600;letter-spacing:-1px}
 .st-l{font-size:10px;color:var(--ink3);margin-top:3px}
 
 /* SECTIONS */
@@ -326,18 +325,20 @@ import { FORM_URL, SLOTS } from '../config';
 .ld-ai{background:var(--acc)}.ld-jack{background:#22c55e}.ld-both{background:#ec4899}
 
 /* SERVIZI */
-.svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:start}
 @media(max-width:700px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.svc-grid{grid-template-columns:1fr}}
 .svc{border:0.5px solid var(--line);border-radius:10px;padding:18px 20px;cursor:pointer;transition:border-color 0.15s,box-shadow 0.15s,transform 0.15s;text-decoration:none;display:block;color:inherit}
 .svc:hover{border-color:var(--acc-border);box-shadow:0 4px 16px rgba(108,99,255,0.08);transform:translateY(-1px)}
+.svc-featured{border-color:var(--acc-border);background:var(--acc-bg)}
+.svc-featured .svc-cat{font-weight:600}
 .svc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .svc-cat{font-size:10px;font-weight:500;color:var(--acc)}
 .svc h3{font-size:13px;font-weight:500;margin-bottom:5px;line-height:1.3;color:var(--ink)}
 .svc p{font-size:12px;color:var(--ink2);line-height:1.5}
-.svc-ft{margin-top:12px;padding-top:10px;border-top:0.5px solid var(--line);display:flex;justify-content:space-between}
+.svc-ft{margin-top:12px;padding-top:10px;border-top:0.5px solid var(--line);display:flex;flex-direction:column;gap:2px}
 .svc-free{font-size:11px;font-weight:500;color:var(--acc)}
-.svc-paid{font-size:11px;color:var(--ink3)}
+.svc-paid{font-size:12px;color:var(--ink3);display:block;margin-top:2px}
 .any-request{display:flex;align-items:center;gap:12px;padding:14px 18px;border:0.5px solid var(--line);border-radius:10px;margin-top:10px;background:var(--surf);text-decoration:none;color:inherit;transition:border-color 0.1s}
 .any-request:hover{border-color:var(--acc)}
 .any-icon{color:var(--acc);flex-shrink:0}
@@ -352,7 +353,7 @@ import { FORM_URL, SLOTS } from '../config';
 .faq-item{border-bottom:0.5px solid var(--line);overflow:hidden}
 .faq-item:last-child{border-bottom:none}
 .faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 0;cursor:pointer;gap:16px;background:none;border:none;width:100%;text-align:left}
-.faq-q-text{font-size:14px;font-weight:500;color:var(--ink);line-height:1.3;flex:1}
+.faq-q-text{font-size:15px;font-weight:500;color:var(--ink);line-height:1.3;flex:1}
 .faq-icon{color:var(--ink3);flex-shrink:0;transition:transform 0.2s;font-size:20px;line-height:1;font-weight:300}
 .faq-item.open .faq-icon{transform:rotate(45deg);color:var(--acc)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease,padding 0.3s ease}
@@ -364,13 +365,13 @@ import { FORM_URL, SLOTS } from '../config';
 .honest{border:0.5px solid var(--acc-border);border-radius:12px;padding:36px;background:var(--acc-bg);max-width:720px}
 .honest-tag{font-size:11px;font-weight:500;color:var(--acc);margin-bottom:12px}
 .honest h2{font-size:22px;font-weight:500;letter-spacing:-0.5px;margin-bottom:14px;line-height:1.25}
-.honest p{font-size:14px;color:var(--ink2);line-height:1.75}
+.honest p{font-size:15px;color:var(--ink2);line-height:1.75}
 
 /* CTA */
 .cta{padding:72px 32px 80px;margin:0 -32px;background:var(--acc);text-align:center}
-@media(max-width:768px){.cta{margin:0 -20px;padding:60px 20px 100px}}
+@media(max-width:768px){.cta{margin:0 -20px;padding:60px 20px calc(90px + env(safe-area-inset-bottom, 0px))}}
 .cta h2{font-size:clamp(32px,5vw,52px);font-weight:500;letter-spacing:-2px;margin-bottom:14px;line-height:1.0;color:#fff}
-.cta-sub{font-size:16px;color:rgba(255,255,255,0.72);margin-bottom:36px;line-height:1.6}
+.cta-sub{font-size:15px;color:rgba(255,255,255,0.72);margin-bottom:36px;line-height:1.6}
 .cta-card{border:none;border-radius:14px;padding:28px 28px 24px;max-width:400px;margin:0 auto;background:rgba(255,255,255,0.13)}
 .cta-lbl{font-size:11px;font-weight:500;color:rgba(255,255,255,0.5);margin-bottom:16px;text-align:left;letter-spacing:0.4px}
 .cl{list-style:none;margin-bottom:18px;text-align:left}
