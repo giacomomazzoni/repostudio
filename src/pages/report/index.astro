@@ -76,8 +76,8 @@ const reports = allReports
 .rp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:10px}
 @media(max-width:640px){.rp-grid{grid-template-columns:1fr}}
 
-.rp-card{border:0.5px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:8px;text-decoration:none;transition:border-color 0.1s}
-.rp-card:hover{border-color:var(--acc)}
+.rp-card{border:0.5px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:8px;text-decoration:none;transition:border-color 0.15s,box-shadow 0.15s,transform 0.15s}
+.rp-card:hover{border-color:var(--acc-border);box-shadow:0 4px 16px rgba(108,99,255,0.08);transform:translateY(-1px)}
 
 .rp-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .rp-cat{font-size:10px;font-weight:500;color:var(--acc);background:var(--acc-bg);border:0.5px solid var(--acc-border);padding:2px 8px;border-radius:3px}

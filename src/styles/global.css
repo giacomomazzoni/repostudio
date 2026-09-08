@@ -3,7 +3,7 @@
 
 :root{
   --ink:#0b0b0b;
-  --ink2:#555;
+  --ink2:#444;
   --ink3:#999;
   --line:rgba(0,0,0,0.08);
   --card:#fff;
@@ -64,10 +64,7 @@ body{font-family:var(--font);color:var(--ink);background:#fff;-webkit-font-smoot
 .nav-cta:hover{opacity:0.88}
 @media(max-width:640px){.nav-links{display:none}}
 
-/* ── FOOTER ── */
-.foot{padding:24px 0;display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid var(--line)}
-.foot span{font-size:11px;color:var(--ink3)}
-@media(max-width:640px){.foot{padding-bottom:80px}}
+/* ── FOOTER (styles in Base.astro) ── */
 
 /* ── KEYFRAMES ── */
 @keyframes gp{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.35;transform:scale(0.65)}}

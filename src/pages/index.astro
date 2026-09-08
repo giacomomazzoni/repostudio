@@ -87,9 +87,9 @@ import { FORM_URL, SLOTS } from '../config';
   </div>
 
   <div class="stats">
-    <div class="st"><div class="st-n">25</div><div class="st-l">servizi</div></div>
-    <div class="st"><div class="st-n">100%</div><div class="st-l">fonti aperte</div></div>
-    <div class="st"><div class="st-n">AI</div><div class="st-l">potenziato</div></div>
+    <div class="st"><div class="st-n">&lt;24h</div><div class="st-l">prima risposta</div></div>
+    <div class="st"><div class="st-n">100%</div><div class="st-l">fonti citate</div></div>
+    <div class="st"><div class="st-n">~{SLOTS}</div><div class="st-l">posti/settimana</div></div>
     <div class="st"><div class="st-n">€0</div><div class="st-l">in beta</div></div>
   </div>
 </section>
@@ -280,7 +280,8 @@ import { FORM_URL, SLOTS } from '../config';
 /* STEPS */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 @media(max-width:600px){.steps{grid-template-columns:1fr}}
-.step{padding:22px;border:0.5px solid var(--line);border-radius:10px}
+.step{padding:22px;border:0.5px solid var(--line);border-radius:10px;transition:border-color 0.15s,box-shadow 0.15s,transform 0.15s}
+.step:hover{border-color:var(--acc-border);box-shadow:0 4px 16px rgba(108,99,255,0.08);transform:translateY(-1px)}
 .step.hl{border-color:var(--acc-border);background:var(--acc-bg)}
 .step-n{font-size:11px;font-weight:500;color:var(--acc);margin-bottom:12px}
 .step h3{font-size:15px;font-weight:500;margin-bottom:6px;line-height:1.25}
@@ -289,7 +290,8 @@ import { FORM_URL, SLOTS } from '../config';
 /* PER CHI È */
 .perchi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 @media(max-width:700px){.perchi-grid{grid-template-columns:1fr}}
-.perchi-card{border:0.5px solid var(--line);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.perchi-card{border:0.5px solid var(--line);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:14px;transition:border-color 0.15s,box-shadow 0.15s,transform 0.15s}
+.perchi-card:hover{border-color:var(--acc-border);box-shadow:0 4px 16px rgba(108,99,255,0.08);transform:translateY(-1px)}
 .perchi-icon{width:36px;height:36px;border-radius:8px;background:var(--acc-bg);border:0.5px solid var(--acc-border);display:flex;align-items:center;justify-content:center;color:var(--acc)}
 .perchi-icon svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .perchi-body h3{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:6px;line-height:1.3}
@@ -324,8 +326,8 @@ import { FORM_URL, SLOTS } from '../config';
 .svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 @media(max-width:700px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.svc-grid{grid-template-columns:1fr}}
-.svc{border:0.5px solid var(--line);border-radius:10px;padding:18px 20px;cursor:pointer;transition:border-color 0.1s;text-decoration:none;display:block;color:inherit}
-.svc:hover{border-color:var(--acc)}
+.svc{border:0.5px solid var(--line);border-radius:10px;padding:18px 20px;cursor:pointer;transition:border-color 0.15s,box-shadow 0.15s,transform 0.15s;text-decoration:none;display:block;color:inherit}
+.svc:hover{border-color:var(--acc-border);box-shadow:0 4px 16px rgba(108,99,255,0.08);transform:translateY(-1px)}
 .svc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .svc-cat{font-size:10px;font-weight:500;color:var(--acc)}
 .svc h3{font-size:13px;font-weight:500;margin-bottom:5px;line-height:1.3;color:var(--ink)}
