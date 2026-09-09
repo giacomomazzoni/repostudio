@@ -93,7 +93,7 @@ import { FORM_URL, SLOTS } from '../config';
 </section>
 
 <!-- PER CHI È -->
-<section class="sec sec-surf">
+<section class="sec">
   <div class="sec-hd">per chi è</div>
   <div class="perchi-grid">
     <div class="perchi-item">
@@ -163,7 +163,7 @@ import { FORM_URL, SLOTS } from '../config';
 </section>
 
 <!-- COME FUNZIONA -->
-<section class="sec">
+<section class="sec sec-surf">
   <div class="sec-hd">come funziona</div>
   <div class="steps-timeline">
     <div class="step-tl">
@@ -233,7 +233,7 @@ import { FORM_URL, SLOTS } from '../config';
 </section>
 
 <!-- IL RISULTATO -->
-<section class="sec" id="risultato">
+<section class="sec sec-acc" id="risultato">
   <div class="sec-hd">il risultato</div>
 
   <div class="risultato-intro">Non ti do link da leggere. Ti do un report pronto.</div>
@@ -476,6 +476,7 @@ import { FORM_URL, SLOTS } from '../config';
 .sec{padding:56px calc(32px + max(0px,(100vw - var(--w)) / 2));margin:0 calc(-32px - max(0px,(100vw - var(--w)) / 2));border-bottom:0.5px solid var(--line)}
 @media(max-width:768px){.sec{padding:56px calc(20px + max(0px,(100vw - var(--w)) / 2));margin:0 calc(-20px - max(0px,(100vw - var(--w)) / 2))}}
 .sec-surf{background:var(--surf)}
+.sec-acc{background:var(--acc-bg)}
 .sec-hd{font-size:13px;font-weight:700;color:var(--ink);letter-spacing:2px;text-transform:uppercase;margin-bottom:36px;display:flex;align-items:center;gap:16px}
 .sec-hd::after{content:'';flex:1;height:0.5px;background:var(--line)}
 
